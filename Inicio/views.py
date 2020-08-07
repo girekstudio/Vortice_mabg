@@ -17,6 +17,7 @@ def index(request):
         'products': Product.objects.all(),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
     }
     return render(request,'index.html', contexto)
 
@@ -32,6 +33,7 @@ def seccion_filtro(request,secc):
         'products': Product.objects.filter(prenda__coleccion__seccion__seccion=secc),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
 
     }
     return render(request,'categories.html', contexto)
@@ -44,10 +46,11 @@ def tipo_filtro(request,seccion,tipo):
         'vortice':Vortice.objects.all().first(),
         'prendas': Prenda.objects.filter(coleccion__seccion__seccion=seccion),
         'colecciones': Coleccion.objects.filter(seccion__seccion=seccion),
-        'redes': Contacto_redes.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
         'products': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion ,prenda__tipo=tipo  ),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
+
     }
     return render(request, 'categories.html', contexto)
 
@@ -65,6 +68,7 @@ def coleccion_filtro(request,seccion,coleccion):
         'products': Product.objects.filter(prenda__coleccion__tema=coleccion ),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
+
     }
     return render(request, 'coleccion.html', contexto)
 
@@ -93,6 +97,7 @@ def blog(request):
         'coleccion': Coleccion.objects.all(),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
 
 
 
@@ -115,6 +120,7 @@ def post(request, n):
         'coleccion': Coleccion.objects.all(),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
 
 
     }

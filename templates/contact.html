@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block principal %}
+
+	<!-- contact -->
+	<div class="contact segments-page">
+		<div class="container">
+			<div class="contact-contents">
+				<div class="pages-title">
+					<h3>Contacto</h3>
+				</div>
+				<form action="" method="POST">
+                    {% csrf_token %}
+					<input type="text" placeholder="Por favor ingrese su nombre." name="name" required>
+					<input type="email" placeholder="Su dirección de correo" name="email" required>
+					<input type="text" placeholder="Tema" name="subject" required>
+					<textarea cols="30" rows="10" placeholder="Mensaje" type="message" name="message" id="message" required></textarea>
+					<button type="submit"  class="button"><i class="fa fa-send"></i>Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- end contact -->
+{% endblock %}

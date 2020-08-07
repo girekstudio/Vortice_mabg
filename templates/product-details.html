@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+{% block metas %}
+    <meta property="og:url" content="https://vortice.ec/producto_detalle/{{ products.id }}" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{{ products.nombre_producto }}" />
+    <meta property="og:description" content="{{ products.descripcion}}" />
+    <meta property="og:image" content="https://vortice.ec/producto_detalle/{{ products.imagen }}" />
+{% endblock %}
+{% block principal %}
+
+    <br>
+
+    <!-- product details -->
+    <div class="segments-page">
+        <div class="container">
+            <div class="product-details">
+                <div class="contents">
+                    <div class="product-d-slide owl-carousel owl-theme">
+                        <div class="content">
+                            <img src="/media/{{ products.imagen }}" alt="">
+                        </div>
+                        <div class="content">
+                            <img src="/media/{{ products.imagen_2 }}" alt="">
+                        </div>
+                    </div>
+                    <div class="desc-short ">
+                        <h4>{{ products.titulo }}</h4>
+
+                        <p>{{ products.descripcion }} </p>
+                        <table class="egt">
+
+                            <tr>
+
+                                <th style="text-align: center"><h4>Precio:</h4></th>
+                                <th style="text-align: center"><h4>Tallas : </h4></th>
+                            </tr>
+                            <tr >
+                                <td style="text-align: center">
+                                    <p style="text-align: center; margin-top: -10px"><del>$.{{ products.precio }}</del></p>
+                                    <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>
+                                </td>
+                                <td style="text-align: center">{{ products.talla }}</td>
+                            </tr>
+                        </table>
+{#                        <div style="text-align: center">#}
+{#                            <button class="button"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>#}
+{#                        </div>#}
+
+                    </div>
+                    <div class="share-media">
+
+                        <h5>Compartir</h5>
+                        <ul>
+                            <li><a href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"><i style="background: #0f9d58" class="fa fa-whatsapp"></i></a></li>
+                            <li>
+                                <div class = "fb-share-button" data-href = "https://vortice.ec/producto_detalle/{{ products.id }}/" data-layout = "button" data-size = "small" >
+                                    <a target = "_blank" href = "https : //www.facebook.com/sharer/sharer.php? u = https% 3A% 2F% 2Fvortice.ec% 2F & amp; src = sdkpreparse " class = " fb-xfbml-parse-ignore " > Compartir </a>
+                                </div>
+                            </li>
+</li>
+                        </ul>
+                    </div>
+                    <div class="desc-long">
+                        <h5>Descripción</h5>
+                        <p>{{ products.detalle }}</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- end product details -->
+
+{% endblock %}
+

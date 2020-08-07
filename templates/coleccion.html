@@ -1,0 +1,57 @@
+{% extends 'index.html' %}
+{% block principal %}
+
+
+    <!-- slide -->
+    <div class="container">
+        <div class="slide">
+            <div class="slide-show owl-carousel owl-theme">
+                <div class="slide-content ">
+                    <img src="/media/{{ colec.portada }}" alt="">
+                    <div class="caption">
+                        <h1 style="color: #ffffff ; font-family:Brush Script MT;">{{ colec.tema }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end slide -->
+    <br><br><br><br><br>
+
+
+    <!-- b-seller -->
+    <div style="margin-top: -100px" class="b-seller segments">
+        <div class="container">
+            <div class="section-title">
+                <h3>Productos</h3>
+            </div>
+            <div class="row">
+                {% for produc in products %}
+                    <div class="col s6">
+                        <div class="content">
+                            <div class="image">
+                                <img src="/media/{{ produc.imagen }}" alt="" width="100" height="180">
+                            </div>
+                            <div class="text">
+                                <a href="/producto_detalle/{{ produc.id }}/">
+                                    <p style="text-align: center">{{ produc.titulo }}</p>
+                                </a>
+                                {% if produc.offer %}
+                                    <p style="text-align: center; margin-top: -10px"><del>$.{{ produc.precio }}</del></p>
+                                    <h5 style="text-align: center ; margin-top: -10px">$.{{ produc.precio_oferta }}</h5>
+                                {% else %}
+                                    <h5 style="text-align: center; margin-top: -10px">$.{{ produc.precio }}</h5>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end b-seller -->
+
+
+
+{% endblock %}
+

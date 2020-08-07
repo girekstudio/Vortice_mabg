@@ -1,0 +1,310 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/media/{{ vortice.favicon_negro }}" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="/media/{{ vortice.favicon_negro }}">
+
+    <link rel="icon" href="/media/{{ vortice.favicon_negro }}">
+    <title>Vortice Store</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/static/css/materialize.css">
+    <link rel="stylesheet" href="/static/css/loaders.css">
+    <link rel="stylesheet" href="/static/css/line-awesome.css">
+    <link rel="stylesheet" href="/static/css/line-awesome-font-awesome.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    {% block metas %}
+        <meta property="og:url" content="https://vortice.ec/blog/{{ blog.id }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ vortice.titulo }}"/>
+        <meta property="og:description" content="{{ vortice.nosotros }}"/>
+        <meta property="og:image" content="/static/imagenes/vortice.png"/>
+        <meta property="og:image:width" content="400"/>
+        <meta property="og:image:height" content="300"/>
+    {% endblock %}
+
+</head>
+
+<body>
+<div id = "fb-root" > </div> <script async diferir crossorigin = "anonymous" src = "https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v8.0&appId= 333390520368742 & autoLogAppEvents = 1 " nonce = " e2YJBuZj " > </script>
+
+<!-- preloader -->
+<div class="preloader">
+    <div class="spinner"></div>
+</div>
+<!-- end preloader -->
+
+<!-- navbar -->
+<div class="navbar">
+    <div class="container">
+        <div class="row">
+            <div class="col s6">
+                <div class="content-left">
+                    <a href="#slide-out" data-activates="slide-out" class="sidebar"><i class="fa fa-bars"></i></a>
+                    <a href="/">
+                        <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">
+                    </a>
+                </div>
+            </div>
+            <div class="col s6">
+                <div class="content-right">
+                    <a href="#slide-out-right" data-activates="slide-out-right" class="sidebar-search"><i
+                            class="fa fa-search"></i></a>
+                    <a href="#slide-out-cart" data-activates="slide-out-cart" class="sidebar-cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <sup>3</sup>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end navbar -->
+
+
+<!-- sidebar -->
+<div class="sidebar-panel">
+    <ul id="slide-out" class="collapsible side-nav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="/static/images/bg-user.jpg" alt="">
+                </div>
+                <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">
+            </div>
+        </li>
+        <li><a href="/"><i style="color: #cc9900" class="fa fa-home"></i>Inicio</a></li>
+
+        {% for client in seccion %}
+            <li>
+                <div class="collapsible-header">
+                    <a href="/seccion/{{ client.seccion }}/"><img src="/media/{{ client.icono }}"
+                                                                  style="max-width:10%;width:auto;height:auto;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ client.seccion }}<i
+                        class="fa fa-angle-right right"></i>
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        {% for pren in prenda %}
+                            {% if pren.coleccion.seccion == client %}
+                                {% if pren.principal_visible == True %}
+                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo }}/"><img
+                                            src="/media/{{ pren.imagen }}"
+                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo }}
+                                    </a>
+                                    </li>
+                                {% endif %}
+
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+
+        <li><a href="/blog/"><i style="color: #cc9900" class="fa fa-rss"></i>Blogs</a></li>
+
+        <li><a href="/contacto/"><i style="color: #cc9900" class="fa fa-envelope-o"></i>Contacto</a></li>
+
+    </ul>
+</div>
+<!-- end sidebar -->
+
+<!-- sidebar -->
+<div class="sidebar-panel sidebar-right-search">
+    <ul id="slide-out-right" class="collapsible side-nav">
+        <li>
+            <div class="form">
+                <input type="search">
+                <button class="button"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="clear"></div>
+        </li>
+        <li>
+            <h5>Popular Search</h5></li>
+        <li><a href="">Football</a></li>
+        <li><a href="">Lemon</a></li>
+        <li><a href="">Canon</a></li>
+        <li><a href="">Laptop</a></li>
+        <li><a href="">Pizza</a></li>
+        <li><a href="">Sport</a></li>
+    </ul>
+</div>
+<!-- end sidebar -->
+
+<!-- sidebar cart -->
+<div class="sidebar-panel sidebar-right-cart">
+    <div id="slide-out-cart" class="collapsible side-nav">
+        <div class="content">
+            <div class="cart-img">
+                <img src="/static/images/product1.jpg" alt="">
+            </div>
+            <div class="cart-title">
+                <a href="">Casual Clothes in a Modern Style</a>
+                <h5>$28</h5>
+            </div>
+            <div class="cart-remove">
+                <a href=""><i class="fa fa-remove"></i></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="content">
+            <div class="cart-img">
+                <img src="/static/images/product2.jpg" alt="">
+            </div>
+            <div class="cart-title">
+                <a href="">Trendy Headband Style in 2018</a>
+                <h5>$11</h5>
+            </div>
+            <div class="cart-remove">
+                <a href=""><i class="fa fa-remove"></i></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="content">
+            <div class="cart-img">
+                <img src="/static/images/product3.jpg" alt="">
+            </div>
+            <div class="cart-title">
+                <a href="">Shoes that Light up When Dark</a>
+                <h5>$32</h5>
+            </div>
+            <div class="cart-remove">
+                <a href=""><i class="fa fa-remove"></i></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="cart-button">
+            <ul>
+                <li>
+                    <button class="button"><i class="fa fa-shopping-cart"></i>View Cart</button>
+                </li>
+                <li>
+                    <button class="button"><i class="fa fa-send"></i>Checkout</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end sidebar cart -->
+
+{% block principal %}
+
+
+    <!-- slide -->
+    <div class="container">
+        <div class="slide">
+            <div class="slide-show owl-carousel owl-theme">
+                {% for sli in slider %}
+                    <div class="slide-content ">
+                        <img src="/media/{{ sli.imagen }}" alt="">
+                        <div class="caption">
+
+                            <h2 style="color: #ffffff ; font-family:Brush Script MT;">{{ sli.titulo }}</h2>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    <!-- end slide -->
+
+
+    <!-- category -->
+    <div class="category segments">
+        <div class="container">
+            <div class="row">
+                {% for client in seccion %}
+                    <div class="col s3">
+                        <div class="content">
+                            <a href="/seccion/{{ client.seccion }}/">
+                                <img src="/media/{{ client.icono }}" style="max-width:90%;width:auto;height:auto;">
+                                <span>{{ client.seccion }}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end category -->
+
+    <!-- banner -->
+    <div class="banner">
+        <div class="container-fluid">
+            <div class="content">
+                {% for colec in coleccion %}
+                    {% if colec.nuevo %}
+                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.id }}/"><img alt="Vortice"
+                                                                                                      src="/media/{{ colec.portada }}"
+                                                                                                      style="max-width:100%;width:auto;height:auto;"></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end banner -->
+
+
+    <!-- product home -->
+    <div class="product-home segments">
+        <div class="container">
+            <div class="section-title">
+                <h3>Colecciones</h3>
+            </div>
+            <div class="product-slide owl-carousel owl-theme">
+
+
+                {% for colec in coleccion %}
+                    <div class="content">
+                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
+                                src="/media/{{ colec.imagen }}" alt=""></a>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="l-more">
+                <a href="see-more-product.html">
+                    See More<i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- end product home -->
+    <br><br>
+
+{% endblock %}
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <img src="/media/{{ vortice.logo_negro }}" alt="">
+        <ul>
+            <li><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li><a href=""><i class="fa fa-google"></i></a></li>
+            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+        </ul>
+        <p>Copyright © Todos los derechos reservados</p>
+    </div>
+</footer>
+<!-- end footer -->
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/materialize.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/styleswitcher.js"></script>
+<script src="/static/js/main.js"></script>
+
+</body>
+
+</html>

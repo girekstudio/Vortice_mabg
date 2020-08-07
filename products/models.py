@@ -12,12 +12,11 @@ class Product(models.Model):
     new = models.BooleanField(default=False)
     stock = models.BooleanField(default=True)
     prenda=models.ForeignKey(Prenda, on_delete=models.CASCADE, null=True, blank=True )
-    # secciones = models.ForeignKey(Seccion_Cliente, on_delete=models.CASCADE, null=True, blank=True)
-    # coleccion = models.ForeignKey(Coleccion, on_delete=models.CASCADE, null=True, blank=True)
-    # articulo=models.ForeignKey(Prenda, on_delete=models.CASCADE, null=True, blank=True )
     titulo=models.CharField(max_length=50, null=True, blank=True)
     imagen=models.ImageField(upload_to='media', null=True, blank=True, help_text='100x100')
     imagen_2=models.ImageField(upload_to='media', null=True, blank=True, help_text='100x100')
+    imagen_3 = models.ImageField(upload_to='media', null=True, blank=True, help_text='100x100')
+    imagen_4 = models.ImageField(upload_to='media', null=True, blank=True, help_text='100x100')
     talla=models.CharField(max_length=50, null=True, blank=True)
     precio=models.DecimalField(max_digits=999, decimal_places=2)
     precio_oferta=models.DecimalField(max_digits=999, decimal_places=2, null=True, blank=True)
@@ -32,4 +31,4 @@ class Product(models.Model):
 
 
     class Meta:
-        verbose_name_plural = "4. Producto "
+        verbose_name_plural = "1. Producto "

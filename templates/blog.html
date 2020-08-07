@@ -12,7 +12,7 @@
                     <div class="text">
                         <a href="/post/{{ blog.id }}/"><h4>{{ blog.titulo }} </h4></a>
                         <p class="date"><i class="fa fa-calendar"></i>Autor: {{ blog.fecha }}</p>
-                        <p class="date"><i class="fa fa-calendar"></i>Visitas: {% vistanumero blog.id %} </p>
+                        <p class="date"><i class="fa fa-eye"></i>Visitas: {% vistanumero blog.id %} </p>
                         <p>{{ blog.articulo|safe|truncatechars:"150" }}</p>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 {% extends 'index.html' %}
 
 {% block metas %}
-    <meta property="og:url" content="https://vortice.ec/blog/{{ blogg.id }}"/>
+    <meta property="og:url" content="http://vortice.ec/blog/{{ blogg.id }}"/>
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="{{ blogg.titulo }}"/>
     <meta property="og:description" content="{{ blogg.articulo }}"/>
-    <meta property="og:image:type"  content="https://vortice.ec/media/{{ blogg.imagen }}"/>
+    <meta property="og:image:type"  content="http://vortice.ec/media/{{ blogg.imagen }}"/>
     <meta property="og:image:width" content="400"/>
     <meta property="og:image:height" content="300"/>
 {% endblock %}

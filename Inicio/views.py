@@ -129,6 +129,13 @@ def post(request, n):
 def contacto(request):
     contexto = {
         'vortice': Vortice.objects.all().first(),
+        'coleccion': Coleccion.objects.all(),
+        'prenda': Prenda.objects.all(),
+        'seccion': Seccion_Cliente.objects.all(),
+        'products': Product.objects.all(),
+        'blogs': Blogs.objects.all(),
+        'categorias': Categoria.objects.all(),
+        'redes': Contacto_redes.objects.all().first(),
     }
     if request.POST:
         enviar_email(request,request.POST['subject'],request.POST['email'],"vortice.ec@gmail.com",request.POST['message'],request.POST['name'])

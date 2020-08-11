@@ -42,18 +42,25 @@
             </div>
            <div class="share-media">
 
-                        <h5>Compartir</h5>
-                        <ul>
-                            <li><a href="whatsapp://send?text=https:/vortice.ec/post/{{ blogg.id }}/" data-action="share/whatsapp/share"><i style="color: #0f9d58 ; " class="fa fa-whatsapp"></i></a></li>
-                            <br>
-                            <li>
-                                <div class = "fb-share-button" data-href = "https://vortice.ec/post/{{ blogg.id }}/" data-layout = "button" data-size = "small" >
-                                    <a target = "_blank" href = "https : //www.facebook.com/sharer/sharer.php? u = https% 3A% 2F% 2Fvortice.ec% 2F & amp; src = sdkpreparse " class = " fb-xfbml-parse-ignore " > Compartir </a>
-                                </div>
-                            </li>
-</li>
-                        </ul>
-                    </div>
+                <h5>Compartir</h5>
+                <ul>
+                    <li><a href="whatsapp://send?text=https:/vortice.ec/post/{{ blogg.id }}/" data-action="share/whatsapp/share"><i style="color: #0f9d58 ; " class="fa fa-whatsapp"></i></a></li>
+                     <li>
+                        <div class="fb-share-button" data-href="http://www.vortice.ec/post/{{ blogg.id }}/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.vortice.ec%2Fpost%2F{{ blogg.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
+                    </li>
+                </ul><br>
+
+                <a  class="button"  style=" background: #00C853" title="Click para chatear" href="https://api.whatsapp.com/send?phone=593992470121&text=Hola%20Me%20interesa%20este%20post www.vortice.ec/post/{{ blogg.id }}/  " target="_blank" rel="noopener"><i style="color: #ffffff "  class="fa fa-whatsapp"></i>Envíanos un mensaje por WhatsApp</a>
+
+
+                <br>
+                    <li>
+                        <div class = "fb-share-button" data-href = "https://vortice.ec/post/{{ blogg.id }}/" data-layout = "button" data-size = "small" >
+                            <a target = "_blank" href = "https : //www.facebook.com/sharer/sharer.php? u = https% 3A% 2F% 2Fvortice.ec% 2F & amp; src = sdkpreparse " class = " fb-xfbml-parse-ignore " > Compartir </a>
+                        </div>
+                    </li>
+                </ul>
+           </div>
         </div>
     </div>
     <!-- end blog single -->

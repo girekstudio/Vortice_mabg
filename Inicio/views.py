@@ -29,6 +29,7 @@ def seccion_filtro(request,secc):
         'vortice':Vortice.objects.all().first(),
         'seccion': Seccion_Cliente.objects.all(),
         'sec': Seccion_Cliente.objects.get(seccion=secc),
+        'prenda': Prenda.objects.all(),
         'coleccioness':Coleccion.objects.filter(seccion__seccion=secc),
         'products': Product.objects.filter(prenda__coleccion__seccion__seccion=secc),
         'blogs': Blogs.objects.all(),
@@ -98,9 +99,6 @@ def blog(request):
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'redes': Contacto_redes.objects.all().first(),
-
-
-
 
     }
     return render(request, "blog.html", contexto)

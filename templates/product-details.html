@@ -22,21 +22,31 @@
                         <div class="content">
                             <img src="/media/{{ products.imagen }}" alt="" width="100%" height="100%">
                         </div>
-                        <div class="content">
-                            <img src="/media/{{ products.imagen_2 }}" alt="" width="100%" height="100%">
-                        </div>
-                        <div class="content">
-                            <img src="/media/{{ products.imagen_3 }}" alt="" width="100%" height="100%">
-                        </div>
-                        <div class="content">
-                            <img src="/media/{{ products.imagen_4 }}" alt="" width="100%" height="100%">
-                        </div>
+                        {% if products.imagen_2  %}
+                            <div class="content">
+                                <img src="/media/{{ products.imagen_2 }}" alt="" width="100%" height="100%">
+                            </div>
+                            {% else %}
+                        {% endif %}
+                        {% if products.imagen_3  %}
+                            <div class="content">
+                                <img src="/media/{{ products.imagen_3 }}" alt="" width="100%" height="100%">
+                            </div>
+                            {% else %}
+                        {% endif %}
+                        {% if products.imagen_4  %}
+                            <div class="content">
+                                <img src="/media/{{ products.imagen_4 }}" alt="" width="100%" height="100%">
+                            </div>
+                            {% else %}
+                        {% endif %}
+
                     </div>
 
                     <div class="desc-short ">
                         <h4>{{ products.titulo }}</h4>
 
-                        <p>{{ products.descripcion }} </p>
+                        <p>{{ products.descripcion }}. - Consultar para otras tallas </p>
                         <table class="egt">
 
                             <tr>
@@ -47,15 +57,15 @@
 
                                 <td style="text-align: center">{{ products.talla }}</td>
                                 <td style="text-align: center">
-                                    <p style="text-align: center; margin-top: -10px"><del>$.{{ products.precio }}</del></p>
-                                    <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>
+                                    {% if produc.offer %}
+                                        <p style="text-align: center; margin-top: 0px"><del>$.{{ products.precio }}</del></p>
+                                        <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>
+                                    {% else %}
+                                        <h5 style="text-align: center; margin-top: 10px">$.{{ products.precio }}</h5>
+                                    {% endif %}
                                 </td>
                             </tr>
-
                         </table>
-{#                        <div style="text-align: center">#}
-{#                            <button class="button"><i class="fa fa-shopping-cart"></i>Añadir al Carrito</button>#}
-{#                        </div>#}
 
                     </div>
                     <div class="share-media">
@@ -69,11 +79,6 @@
                         </ul><br>
 
                         <a  class="button"  style=" background: #00C853" title="Click para chatear" href="https://api.whatsapp.com/send?phone=593994343754&text=Hola%20Me%20interesa%20un%20producto  www.vortice.ec/producto_detalle/{{ products.id }}/  " target="_blank" rel="noopener"><i style="color: #ffffff "  class="fa fa-whatsapp"></i>Envíanos un mensaje por WhatsApp</a>
-
-                    </div>
-                    <div class="desc-long">
-                        <h5>Descripción</h5>
-                        <p>{{ products.detalle }}</p>
                     </div>
                 </div>
 

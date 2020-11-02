@@ -8,7 +8,7 @@
         <div class="container">
             {% for blog in blogs %}
                 <div class="contents">
-                    <img src="/media/{{ blog.imagen }}" alt="">
+                    <img src="/media/{{ blog.imagen }}" alt="" width="100" height="300">
                     <div class="text">
                         <a href="/post/{{ blog.id }}/"><h4>{{ blog.titulo }} </h4></a>
                         <p class="date"><i class="fa fa-calendar"></i>Autor: {{ blog.fecha }}</p>

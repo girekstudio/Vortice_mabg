@@ -23,9 +23,9 @@
                     </div>
 
                     <div class="l-more">
-                        <a href="see-more-product.html">
+                        <p href="see-more-product.html">
                             <i class="fa fa-angle-left"></i>Desliza
-                        </a>
+                        </p>
                     </div>
                 </div>
                 <!-- end product home -->
@@ -46,7 +46,7 @@
                         <div class="content">
                             <br><br>
                             <div class="image">
-                                <img src="/media/{{ produc.imagen }}" alt="" >
+                                <img src="/media/{{ produc.imagen }}" alt="" width="100" height="470" >
                             </div>
                             <div class="text">
                                 <a href="/producto_detalle/{{ produc.id }}/">
@@ -83,15 +83,15 @@
                 {% for colec in coleccioness %}
                     <div class="content">
                         <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
-                                src="/media/{{ colec.imagen }}" alt=""></a>
+                                src="/media/{{ colec.imagen }}" alt="" width="100" height="400"></a>
                     </div>
                 {% endfor %}
 
             </div>
             <div class="l-more">
-                <a href="see-more-product.html">
-                    See More<i class="fa fa-angle-right"></i>
-                </a>
+                <p href="see-more-product.html">
+                    <i class="fa fa-angle-right"></i>Desliza
+                </p>
             </div>
         </div>
     </div>

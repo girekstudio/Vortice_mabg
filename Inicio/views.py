@@ -26,54 +26,69 @@ def seccion_filtro(request,secc):
 
     contexto ={
         'prendas': Prenda.objects.filter(coleccion__seccion__seccion=secc),
+        'articu': Articulo.objects.filter(seccion__seccion=secc),
         'vortice':Vortice.objects.all().first(),
         'seccion': Seccion_Cliente.objects.all(),
         'sec': Seccion_Cliente.objects.get(seccion=secc),
         'prenda': Prenda.objects.all(),
-        'coleccioness':Coleccion.objects.filter(seccion__seccion=secc),
-        'products': Product.objects.filter(prenda__coleccion__seccion__seccion=secc),
+        'colecciones':Coleccion.objects.filter(seccion__seccion=secc),
+        'productss': Product.objects.filter(prenda__coleccion__seccion__seccion=secc),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
         'redes': Contacto_redes.objects.all().first(),
-
     }
     return render(request,'categories.html', contexto)
 
 
 def tipo_filtro(request,seccion,tipo):
     contexto ={
+        'articu': Articulo.objects.filter(seccion__seccion=seccion),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'vortice':Vortice.objects.all().first(),
         'prendas': Prenda.objects.filter(coleccion__seccion__seccion=seccion),
         'colecciones': Coleccion.objects.filter(seccion__seccion=seccion),
         'redes': Contacto_redes.objects.all().first(),
-        'products': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion ,prenda__tipo=tipo  ),
+        'product': Product.objects.filter(articulo__seccion__seccion=seccion, articulo__tipo=tipo),
+        'products': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion, prenda__tipo=tipo),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
-
     }
     return render(request, 'categories.html', contexto)
 
-
-
 def coleccion_filtro(request,seccion,coleccion):
     contexto ={
+        'articu': Articulo.objects.filter(seccion__seccion=seccion),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'vortice':Vortice.objects.all().first(),
-        'prendas': Prenda.objects.filter(coleccion__seccion__seccion=seccion),
+        'prendas': Prenda.objects.filter(coleccion__seccion__seccion=seccion, coleccion__tema=coleccion),
         'colecciones': Coleccion.objects.filter(seccion__seccion=seccion),
         'colec': Coleccion.objects.filter(tema=coleccion).first(),
         'redes': Contacto_redes.objects.all(),
+        # 'products': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion),
         'products': Product.objects.filter(prenda__coleccion__tema=coleccion ),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
-
     }
     return render(request, 'coleccion.html', contexto)
 
-
+def coleccion_filtro_prenda(request,seccion,coleccion,tipo):
+    contexto ={
+        'articu': Articulo.objects.filter(seccion__seccion=seccion),
+        'prenda': Prenda.objects.all(),
+        'seccion': Seccion_Cliente.objects.all(),
+        'vortice':Vortice.objects.all().first(),
+        'prendaa': Prenda.objects.filter(coleccion__seccion__seccion=seccion, coleccion__tema=coleccion),
+        'colecciones': Coleccion.objects.filter(seccion__seccion=seccion),
+        'colec': Coleccion.objects.filter(tema=coleccion).first(),
+        'redes': Contacto_redes.objects.all(),
+        'product': Product.objects.filter(articulo__seccion__seccion=seccion, articulo__tipo=tipo),
+        'products': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion, prenda__tipo=tipo),
+        'blogs': Blogs.objects.all(),
+        'categorias': Categoria.objects.all(),
+    }
+    return render(request, 'coleccion.html', contexto)
 
 
 def producto_detalle(request,id):
@@ -99,7 +114,6 @@ def blog(request):
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'redes': Contacto_redes.objects.all().first(),
-
     }
     return render(request, "blog.html", contexto)
 
@@ -119,8 +133,6 @@ def post(request, n):
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'redes': Contacto_redes.objects.all().first(),
-
-
     }
     return render(request, "blog-single.html", contexto)
 

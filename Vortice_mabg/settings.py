@@ -129,6 +129,16 @@ EMAIL_HOST_PASSWORD = '0310vortice.ec0310mabg'
 EMAIL_PORT = 587
 
 
+# STATIC_URL = '/static/'
+# STATIC_ROOT='/var/www/Vortice_mabg'
+# # STATICFILES_DIRS=[
+# #     'static',
+# # ]
+#
+# MEDIA_URL="/media/"
+# MEDIA_ROOT="media"
+
+
 STATIC_URL = '/static/'
 #STATIC_ROOT="static"
 STATICFILES_DIRS=[

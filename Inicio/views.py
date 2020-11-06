@@ -26,7 +26,7 @@ def seccion_filtro(request,secc):
 
     contexto ={
         'prendas': Prenda.objects.filter(coleccion__seccion__seccion=secc),
-        # 'articu': Articulo.objects.filter(seccion__seccion=secc),
+        'articu': Articulo.objects.filter(seccion__seccion=secc),
         'vortice':Vortice.objects.all().first(),
         'seccion': Seccion_Cliente.objects.all(),
         'sec': Seccion_Cliente.objects.get(seccion=secc),
@@ -42,7 +42,7 @@ def seccion_filtro(request,secc):
 
 def tipo_filtro(request,seccion,tipo):
     contexto ={
-        # 'articu': Articulo.objects.filter(seccion__seccion=seccion),
+        'articu': Articulo.objects.filter(seccion__seccion=seccion),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'vortice':Vortice.objects.all().first(),
@@ -58,7 +58,7 @@ def tipo_filtro(request,seccion,tipo):
 
 def coleccion_filtro(request,seccion,coleccion):
     contexto ={
-        # 'articu': Articulo.objects.filter(seccion__seccion=seccion),
+        'articu': Articulo.objects.filter(seccion__seccion=seccion),
         'prenda': Prenda.objects.all(),
         'seccion': Seccion_Cliente.objects.all(),
         'vortice':Vortice.objects.all().first(),
@@ -66,7 +66,7 @@ def coleccion_filtro(request,seccion,coleccion):
         'colecciones': Coleccion.objects.filter(seccion__seccion=seccion),
         'colec': Coleccion.objects.filter(seccion__seccion=seccion, tema=coleccion).first(),
         'redes': Contacto_redes.objects.all(),
-        # 'productt': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion, )
+        # 'productt': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion, ),
         'prod': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion,prenda__coleccion__tema=coleccion),
         'products': Product.objects.filter(prenda__coleccion__tema=coleccion ),
         'blogs': Blogs.objects.all(),

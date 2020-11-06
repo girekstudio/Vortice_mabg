@@ -27,7 +27,7 @@ urlpatterns = [
     path('seccion/<slug:secc>/',seccion_filtro),
     path('seccion/<slug:seccion>/prenda/<slug:tipo>/',tipo_filtro),
     path('seccion/<slug:seccion>/coleccion/<slug:coleccion>/',coleccion_filtro),
-    path('seccion/<slug:seccion>/coleccion/<slug:coleccion>/prenda/<slug:tipo>/',coleccion_filtro_prenda),
+    # path('seccion/<slug:seccion>/coleccion/<slug:coleccion>/prenda/<slug:tipo>/',coleccion_filtro_prenda),
     path('blog/', blog),
     path('post/<int:n>/', post),
     path('producto_detalle/<int:id>/',producto_detalle),

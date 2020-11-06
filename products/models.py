@@ -11,7 +11,7 @@ class Product(models.Model):
     offer = models.BooleanField(default=False)
     new = models.BooleanField(default=False)
     stock = models.BooleanField(default=True)
-    articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE, null=True, blank=True )
+    # articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE, null=True, blank=True )
     prenda=models.ForeignKey(Prenda, on_delete=models.CASCADE, null=True, blank=True )
     titulo=models.CharField(max_length=50, null=True, blank=True)
     imagen=models.ImageField(upload_to='media', null=True, blank=True, help_text='100x100')

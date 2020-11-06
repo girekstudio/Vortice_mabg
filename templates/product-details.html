@@ -10,82 +10,82 @@
     <meta property="fb:app_id" content="926164441218858" />
 {% endblock %}
 {% block principal %}
-
-    <br>
-
-    <!-- product details -->
-    <div class="segments-page">
-        <div class="container">
-            <div class="product-details">
-                <div class="contents">
-                    <div class="product-d-slide owl-carousel owl-theme">
-                        <div class="content">
-                            <img src="/media/{{ products.imagen }}" alt="" width="100%" height="100%">
-                        </div>
-                        {% if products.imagen_2  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_2 }}" alt="" width="100%" height="100%">
-                            </div>
-                            {% else %}
-                        {% endif %}
-                        {% if products.imagen_3  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_3 }}" alt="" width="100%" height="100%">
-                            </div>
-                            {% else %}
-                        {% endif %}
-                        {% if products.imagen_4  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_4 }}" alt="" width="100%" height="100%">
-                            </div>
-                            {% else %}
-                        {% endif %}
-
-                    </div>
-
-                    <div class="desc-short ">
-                        <h4>{{ products.titulo }}</h4>
-                        <h5>Colección  <strong>{{ products.prenda.coleccion.tema }}</strong></h5>
-
-                        <p>{{ products.descripcion }}. - Consultar para otras tallas </p>
-                        <table class="egt">
-
-                            <tr>
-                                <th style="text-align: center"><h4>Tallas : </h4></th>
-                                <th style="text-align: center"><h4>Precio:</h4></th>
-                            </tr>
-                            <tr >
-
-                                <td style="text-align: center">{{ products.talla }}</td>
-                                <td style="text-align: center">
-                                    {% if produc.offer %}
-                                        <p style="text-align: center; margin-top: 0px"><del>$.{{ products.precio }}</del></p>
-                                        <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>
-                                    {% else %}
-                                        <h5 style="text-align: center; margin-top: 10px">$.{{ products.precio }}</h5>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        </table>
-
-                    </div>
-                    <div class="share-media">
-
-                        <h5>Compartir</h5>
-                        <ul>
-                            <li><a  href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"><i style="color: #0f9d58 "  class="fa fa-whatsapp"></i></a></li>
-                            <li>
-                                <div class="fb-share-button" data-href="http://www.vortice.ec/producto_detalle/{{ products.id }}/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.vortice.ec%2Fproducto_detalle%2F{{ products.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-                            </li>
-                        </ul><br>
-
-                        <a  class="button"  style=" background: #00C853" title="Click para chatear" href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Me%20interesa%20un%20producto  www.vortice.ec/producto_detalle/{{ products.id }}/  " target="_blank" rel="noopener"><i style="color: #ffffff "  class="fa fa-whatsapp"></i>Envíanos un mensaje por WhatsApp</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end product details -->
+{##}
+{#    <br>#}
+{##}
+{#    <!-- product details -->#}
+{#    <div class="segments-page">#}
+{#        <div class="container">#}
+{#            <div class="product-details">#}
+{#                <div class="contents">#}
+{#                    <div class="product-d-slide owl-carousel owl-theme">#}
+{#                        <div class="content">#}
+{#                            <img src="/media/{{ products.imagen }}" alt="" width="100%" height="100%">#}
+{#                        </div>#}
+{#                        {% if products.imagen_2  %}#}
+{#                            <div class="content">#}
+{#                                <img src="/media/{{ products.imagen_2 }}" alt="" width="100%" height="100%">#}
+{#                            </div>#}
+{#                            {% else %}#}
+{#                        {% endif %}#}
+{#                        {% if products.imagen_3  %}#}
+{#                            <div class="content">#}
+{#                                <img src="/media/{{ products.imagen_3 }}" alt="" width="100%" height="100%">#}
+{#                            </div>#}
+{#                            {% else %}#}
+{#                        {% endif %}#}
+{#                        {% if products.imagen_4  %}#}
+{#                            <div class="content">#}
+{#                                <img src="/media/{{ products.imagen_4 }}" alt="" width="100%" height="100%">#}
+{#                            </div>#}
+{#                            {% else %}#}
+{#                        {% endif %}#}
+{##}
+{#                    </div>#}
+{##}
+{#                    <div class="desc-short ">#}
+{#                        <h4>{{ products.titulo }}</h4>#}
+{#                        <h5>Colección  <strong>{{ products.prenda.coleccion.tema }}</strong></h5>#}
+{##}
+{#                        <p>{{ products.descripcion }}. - Consultar para otras tallas </p>#}
+{#                        <table class="egt">#}
+{##}
+{#                            <tr>#}
+{#                                <th style="text-align: center"><h4>Tallas : </h4></th>#}
+{#                                <th style="text-align: center"><h4>Precio:</h4></th>#}
+{#                            </tr>#}
+{#                            <tr >#}
+{##}
+{#                                <td style="text-align: center">{{ products.talla }}</td>#}
+{#                                <td style="text-align: center">#}
+{#                                    {% if produc.offer %}#}
+{#                                        <p style="text-align: center; margin-top: 0px"><del>$.{{ products.precio }}</del></p>#}
+{#                                        <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>#}
+{#                                    {% else %}#}
+{#                                        <h5 style="text-align: center; margin-top: 10px">$.{{ products.precio }}</h5>#}
+{#                                    {% endif %}#}
+{#                                </td>#}
+{#                            </tr>#}
+{#                        </table>#}
+{##}
+{#                    </div>#}
+{#                    <div class="share-media">#}
+{##}
+{#                        <h5>Compartir</h5>#}
+{#                        <ul>#}
+{#                            <li><a  href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"><i style="color: #0f9d58 "  class="fa fa-whatsapp"></i></a></li>#}
+{#                            <li>#}
+{#                                <div class="fb-share-button" data-href="http://www.vortice.ec/producto_detalle/{{ products.id }}/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.vortice.ec%2Fproducto_detalle%2F{{ products.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>#}
+{#                            </li>#}
+{#                        </ul><br>#}
+{##}
+{#                        <a  class="button"  style=" background: #00C853" title="Click para chatear" href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Me%20interesa%20un%20producto  www.vortice.ec/producto_detalle/{{ products.id }}/  " target="_blank" rel="noopener"><i style="color: #ffffff "  class="fa fa-whatsapp"></i>Envíanos un mensaje por WhatsApp</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <!-- end product details -->#}
 
 {% endblock %}
 

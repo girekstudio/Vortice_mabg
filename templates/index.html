@@ -109,9 +109,9 @@
                         {% for pren in prenda %}
                             {% if pren.coleccion.seccion == client %}
                                 {% if pren.principal_visible == True %}
-                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo }}/"><img
-                                            src="/media/{{ pren.imagen }}"
-                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo }}
+                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo.tipo }}/"><img
+                                            src="/media/{{ pren.tipo.imagen }}"
+                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo.tipo  }}
                                     </a>
                                     </li>
                                 {% endif %}

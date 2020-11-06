@@ -16,10 +16,16 @@ class ColeccionAdmin(admin.ModelAdmin):
 admin.site.register(Coleccion, ColeccionAdmin)
 
 
+
 class ArticuloAdmin(admin.ModelAdmin):
     list_display = Attr(Articulo)+["miniatura"]
     list_display_links = Attr(Articulo)
 admin.site.register(Articulo, ArticuloAdmin)
+
+class Imag_prenda_articuloAdmin(admin.ModelAdmin):
+    list_display = Attr(Imag_prenda_articulo)+["miniatura"]
+    list_display_links = Attr(Imag_prenda_articulo)
+admin.site.register(Imag_prenda_articulo, Imag_prenda_articuloAdmin)
 
 class PrendaAdmin(admin.ModelAdmin):
     list_display = Attr(Prenda)+["miniatura"]

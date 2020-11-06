@@ -12,8 +12,8 @@
                     <div class="product-slide-two owl-carousel owl-theme">
                         {% for arti in articu %}
                             <div class="col s3">
-                              <a href="/seccion/{{ arti.seccion.seccion }}/prenda/{{ arti.tipo }}/">
-                                    <img src="/media/{{ arti.imagen }}" style="max-width:250%;width:auto;height:auto;">
+                              <a href="/seccion/{{ arti.seccion.seccion }}/prenda/{{ arti.tipo.tipo }}/">
+                                    <img src="/media/{{ arti.tipo.imagen }}" style="max-width:250%;width:auto;height:auto;">
                                     <br>
                                 </a>
                             </div>
@@ -84,6 +84,7 @@
                                 {% endif %}
                             </div>
                         </div>
+                        <br><br><br><br>
                     </div>
                 {% endfor %}
             </div>

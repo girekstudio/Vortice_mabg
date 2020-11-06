@@ -84,7 +84,6 @@ class Prenda(models.Model):
 
     def __str__(self):
         return '%s %s' % ( self.coleccion,  self.tipo)
-        # return '%s' % (self.coleccion)
 
     def miniatura(self):
         return mark_safe("<img src='/media/%s' style='width: 100px'>" % self.tipo.imagen)

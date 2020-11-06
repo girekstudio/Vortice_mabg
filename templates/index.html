@@ -83,165 +83,165 @@
 </div>
 <!-- end navbar -->
 
-{##}
-{#<!-- sidebar -->#}
-{#<div class="sidebar-panel">#}
-{#    <ul id="slide-out" class="collapsible side-nav">#}
-{#        <li>#}
-{#            <div class="user-view">#}
-{#                <div class="background">#}
-{#                    <img src="/static/images/bg-user.jpg" alt="">#}
-{#                </div>#}
-{#                <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">#}
-{#            </div>#}
-{#        </li>#}
-{#        <li><a href="/"><i style="color: #cc9900" class="fa fa-home"></i>Inicio</a></li>#}
-{##}
-{#        {% for client in seccion %}#}
-{#            <li>#}
-{#                <div class="collapsible-header">#}
-{#                    <a href="/seccion/{{ client.seccion }}/"><img src="/media/{{ client.icono }}"#}
-{#                                                                  style="max-width:10%;width:auto;height:auto;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ client.seccion }}<i#}
-{#                        class="fa fa-angle-right right"></i>#}
-{#                </div>#}
-{#                <div class="collapsible-body">#}
-{#                    <ul>#}
-{#                        {% for pren in prenda %}#}
-{#                            {% if pren.coleccion.seccion == client %}#}
-{#                                {% if pren.principal_visible == True %}#}
-{#                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo.tipo }}/"><img#}
-{#                                            src="/media/{{ pren.tipo.imagen }}"#}
-{#                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo.tipo  }}#}
-{#                                    </a>#}
-{#                                    </li>#}
-{#                                {% endif %}#}
-{##}
-{#                            {% endif %}#}
-{#                        {% endfor %}#}
-{#                    </ul>#}
-{#                </div>#}
-{#            </li>#}
-{#        {% endfor %}#}
-{##}
-{#        <li><a href="/blog/"><i style="color: #cc9900" class="fa fa-rss"></i>Blogs</a></li>#}
-{##}
-{#        <li><a href="/contacto/"><i style="color: #cc9900" class="fa fa-envelope-o"></i>Contacto</a></li>#}
-{##}
-{#    </ul>#}
-{#</div>#}
-{#<!-- end sidebar -->#}
-{##}
-{##}
-{##}
-{#{% block principal %}#}
-{##}
-{##}
-{#    <!-- slide -->#}
-{#    <div class="container">#}
-{#        <div class="slide">#}
-{#            <div class="slide-show owl-carousel owl-theme">#}
-{#                {% for sli in slider %}#}
-{#                    <div class="slide-content ">#}
-{#                        <img src="/media/{{ sli.imagen }}" alt="">#}
-{#                        <div class="caption">#}
-{##}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#    </div>#}
-{#    <!-- end slide -->#}
-{##}
-{##}
-{#    <!-- category -->#}
-{#    <div class="category segments">#}
-{#        <div class="container">#}
-{#            <div class="row">#}
-{#                {% for client in seccion %}#}
-{#                    <div class="col s3">#}
-{#                        <div class="content">#}
-{#                            <a href="/seccion/{{ client.seccion }}/">#}
-{#                                <img src="/media/{{ client.icono }}" style="max-width:90%;width:auto;height:auto;">#}
-{#                                <span>{{ client.seccion }}</span>#}
-{#                            </a>#}
-{#                        </div>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#    <!-- end category -->#}
-{#    <br>#}
-{##}
-{##}
-{##}
-{##}
-{#    <!-- product home -->#}
-{#    <div class="product-home segments">#}
-{#        <div class="container">#}
-{#            <div class="section-title">#}
-{#                <h3>Nuevas Colecciones</h3>#}
-{#            </div>#}
-{#            <div class="slide-show owl-carousel owl-theme">#}
-{#                {% for colec in coleccion %}#}
-{#                    {% if colec.nuevo %}#}
-{#                        <div class="content">#}
-{#                            <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img#}
-{#                                    alt="Vortice" src="/media/{{ colec.portada }}"#}
-{#                                    style="max-width:100%;width:auto;height:auto;"></a>#}
-{#                            <div class="caption">#}
-{#                                <br>#}
-{#                                <h5 style="color: #777777 ; font-family: Calibri ; text-align: center">{{ colec.seccion.seccion }}#}
-{#                                    - {{ colec.tema }}</h5>#}
-{#                            </div>#}
-{##}
-{#                        </div>#}
-{#                    {% endif %}#}
-{#                {% endfor %}#}
-{#            </div>#}
-{#            <div class="l-more">#}
-{##}
-{#                <p>#}
-{#                    <i class="fa fa-angle-left"></i>Desliza#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{##}
-{##}
-{##}
-{#    <!-- product home -->#}
-{#    <div class="product-home segments">#}
-{#        <div class="container">#}
-{#            <div class="section-title">#}
-{#                <h3>Colecciones</h3>#}
-{#            </div>#}
-{#            <div class="product-slide owl-carousel owl-theme">#}
-{##}
-{##}
-{#                {% for colec in coleccion %}#}
-{#                    <div class="content">#}
-{#                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img#}
-{#                                src="/media/{{ colec.imagen }}" alt="" width="100%" height="100%"></a>#}
-{#                        <p style="text-align: center">{{ colec.seccion.seccion }} - {{ colec.tema }}</p>#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{##}
-{#            </div>#}
-{#            <div class="l-more">#}
-{#                <p>#}
-{#                    <i class="fa fa-angle-left"></i>Desliza#}
-{#                </p>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#    <!-- end product home -->#}
-{#    <br><br>#}
-{##}
-{#{% endblock %}#}
+
+<!-- sidebar -->
+<div class="sidebar-panel">
+    <ul id="slide-out" class="collapsible side-nav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="/static/images/bg-user.jpg" alt="">
+                </div>
+                <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">
+            </div>
+        </li>
+        <li><a href="/"><i style="color: #cc9900" class="fa fa-home"></i>Inicio</a></li>
+
+        {% for client in seccion %}
+            <li>
+                <div class="collapsible-header">
+                    <a href="/seccion/{{ client.seccion }}/"><img src="/media/{{ client.icono }}"
+                                                                  style="max-width:10%;width:auto;height:auto;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ client.seccion }}<i
+                        class="fa fa-angle-right right"></i>
+                </div>
+                <div class="collapsible-body">
+                    <ul>
+                        {% for pren in prenda %}
+                            {% if pren.coleccion.seccion == client %}
+                                {% if pren.principal_visible == True %}
+                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo.tipo }}/"><img
+                                            src="/media/{{ pren.tipo.imagen }}"
+                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo.tipo  }}
+                                    </a>
+                                    </li>
+                                {% endif %}
+
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endfor %}
+
+        <li><a href="/blog/"><i style="color: #cc9900" class="fa fa-rss"></i>Blogs</a></li>
+
+        <li><a href="/contacto/"><i style="color: #cc9900" class="fa fa-envelope-o"></i>Contacto</a></li>
+
+    </ul>
+</div>
+<!-- end sidebar -->
+
+
+
+{% block principal %}
+
+
+    <!-- slide -->
+    <div class="container">
+        <div class="slide">
+            <div class="slide-show owl-carousel owl-theme">
+                {% for sli in slider %}
+                    <div class="slide-content ">
+                        <img src="/media/{{ sli.imagen }}" alt="">
+                        <div class="caption">
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+    <!-- end slide -->
+
+
+    <!-- category -->
+    <div class="category segments">
+        <div class="container">
+            <div class="row">
+                {% for client in seccion %}
+                    <div class="col s3">
+                        <div class="content">
+                            <a href="/seccion/{{ client.seccion }}/">
+                                <img src="/media/{{ client.icono }}" style="max-width:90%;width:auto;height:auto;">
+                                <span>{{ client.seccion }}</span>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- end category -->
+    <br>
+
+
+
+
+    <!-- product home -->
+    <div class="product-home segments">
+        <div class="container">
+            <div class="section-title">
+                <h3>Nuevas Colecciones</h3>
+            </div>
+            <div class="slide-show owl-carousel owl-theme">
+                {% for colec in coleccion %}
+                    {% if colec.nuevo %}
+                        <div class="content">
+                            <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
+                                    alt="Vortice" src="/media/{{ colec.portada }}"
+                                    style="max-width:100%;width:auto;height:auto;"></a>
+                            <div class="caption">
+                                <br>
+                                <h5 style="color: #777777 ; font-family: Calibri ; text-align: center">{{ colec.seccion.seccion }}
+                                    - {{ colec.tema }}</h5>
+                            </div>
+
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="l-more">
+
+                <p>
+                    <i class="fa fa-angle-left"></i>Desliza
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- product home -->
+    <div class="product-home segments">
+        <div class="container">
+            <div class="section-title">
+                <h3>Colecciones</h3>
+            </div>
+            <div class="product-slide owl-carousel owl-theme">
+
+
+                {% for colec in coleccion %}
+                    <div class="content">
+                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
+                                src="/media/{{ colec.imagen }}" alt="" width="100%" height="100%"></a>
+                        <p style="text-align: center">{{ colec.seccion.seccion }} - {{ colec.tema }}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+            <div class="l-more">
+                <p>
+                    <i class="fa fa-angle-left"></i>Desliza
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- end product home -->
+    <br><br>
+
+{% endblock %}
 
 <!-- footer -->
 <footer>

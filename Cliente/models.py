@@ -73,24 +73,24 @@ class Coleccion(models.Model):
 
 
 
-class Prenda(models.Model):
-    principal_visible = models.BooleanField(default=False)
-    # articulo= models.ForeignKey(Articulo, on_delete=models.CASCADE, null=True, blank=True)
-    coleccion = models.ForeignKey(Coleccion, on_delete=models.CASCADE, null=True, blank=True)
-    # tipo=models.ForeignKey(Imag_prenda_articulo, on_delete=models.CASCADE, null=True, blank=True)
-
-
-
-
-    def __str__(self):
-        # return '%s %s' % ( self.coleccion,  self.tipo)
-        return '%s' % (self.coleccion)
-
-    # def miniatura(self):
-    #     return mark_safe("<img src='/media/%s' style='width: 100px'>" % self.tipo.imagen)
-
-
-
-    class Meta:
-        verbose_name_plural = "5. Prenda "
+# class Prenda(models.Model):
+#     principal_visible = models.BooleanField(default=False)
+#     # articulo= models.ForeignKey(Articulo, on_delete=models.CASCADE, null=True, blank=True)
+#     coleccion = models.ForeignKey(Coleccion, on_delete=models.CASCADE, null=True, blank=True)
+#     # tipo=models.ForeignKey(Imag_prenda_articulo, on_delete=models.CASCADE, null=True, blank=True)
+#
+#
+#
+#
+#     def __str__(self):
+#         # return '%s %s' % ( self.coleccion,  self.tipo)
+#         return '%s' % (self.coleccion)
+#
+#     # def miniatura(self):
+#     #     return mark_safe("<img src='/media/%s' style='width: 100px'>" % self.tipo.imagen)
+#
+#
+#
+#     class Meta:
+#         verbose_name_plural = "5. Prenda "
 

@@ -28,6 +28,7 @@ admin.site.register(Coleccion, ColeccionAdmin)
 # admin.site.register(Imag_prenda_articulo, Imag_prenda_articuloAdmin)
 
 class PrendaAdmin(admin.ModelAdmin):
-    list_display = Attr(Prenda)+["miniatura"]
+    # list_display = Attr(Prenda)+["miniatura"]
+    list_display = Attr(Prenda)
     list_display_links = Attr(Prenda)
 admin.site.register(Prenda, PrendaAdmin)

@@ -24,64 +24,66 @@
             <div class="container">
                 <div class="row prd-block prd-block--mobile-image-first prd-block--prv-right js-prd-gallery"
                      id="prdGallery100">
+
+
                     <div class="col-md-6 col-xl-5">
                         <div class="prd-block_info js-prd-m-holder mb-2 mb-md-0"></div><!-- Product Gallery -->
                         <div class="prd-block_main-image main-image--slide js-main-image--slide">
                             <div class="prd-block_main-image-holder js-main-image-zoom" data-zoomtype="inner">
-                                <div class="prd-block_main-image-video js-main-image-video">
-                                    <video loop muted preload="metadata" controls="controls">
-                                        <source src="#">
-                                    </video>
+                                <div class="prd-block_main-image-video js-main-image-video"><video loop muted preload="metadata" controls="controls">
+                                        <source src="#"></video>
                                     <div class="gdw-loader"></div>
                                 </div>
                                 <div class="prd-has-loader">
-                                    <div class="gdw-loader"></div>
-                                    <img src="/media/{{ products.imagen }}" class="zoom" alt=""
-                                         data-zoom-image="/media/{{ products.imagen }}">
+                                    <div class="gdw-loader"></div><img src="/media/{{ products.imagen }}" class="zoom" alt="" data-zoom-image="/media/{{ products.imagen }}">
                                 </div>
                                 <div class="prd-block_main-image-next slick-next js-main-image-next">NEXT</div>
                                 <div class="prd-block_main-image-prev slick-prev js-main-image-prev">PREV</div>
                             </div>
                             <div class="prd-block_main-image-links">
-                                {% if produc.youtube %}
-                                    <a data-fancybox data-width="900" href="https://www.youtube.com/{{ products.youtube }}" class="prd-block_video-link">
-                                        <i class="icon icon-play"></i>
-                                    </a>
-                                    {% else %}
-                                {% endif %}
-                                <a href="/media/{{ products.imagen }}" class="prd-block_zoom-link">
-                                    <i class="icon icon-zoomin"></i>
-                                </a>
+                                <a data-fancybox data-width="900">
+                                   </a> <a href="/media/{{ products.imagen }}" class="prd-block_zoom-link">
+                                <i class="icon icon-zoomin"></i></a>
                             </div>
                         </div>
                         <div class="product-previews-wrapper">
                             <div class="product-previews-carousel" id="previewsGallery100">
-                                <a href="#"  data-value="Silver"  data-image="/media/{{ products.imagen }}" data-zoom-image="/media/{{ products.imagen }}"> <img src="/media/{{ products.imagen }}" alt=""></a>
+                                <a href="#" data-value="Silver" data-image="/media/{{ products.imagen }}" data-zoom-image="/media/{{ products.imagen }}">
+                                    <img src="/media/{{ products.imagen }}" alt=""></a>
+
+                                {% if products.youtube %}
+                                    <a href="#" data-video="/media/{{ products.youtube }}">
+                                        <img src="/media/{{ products.imagen }}" alt="">
+                                    </a>
+                                {% else %}
+                                {% endif %}
+
                                 {% if products.imagen_2 %}
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_2 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">  <img src="/media/{{ products.imagen_2 }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_2 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">
+                                    <img src="/media/{{ products.imagen_2 }}" alt="">
+                                </a>
                                 {% else %}
                                 {% endif %}
 
                                 {% if products.imagen_3 %}
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}" data-zoom-image="/media/{{ products.imagen_3 }}">    <img src="/media/{{ products.imagen_3 }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">
+                                    <img src="/media/{{ products.imagen_3 }}" alt="">
+                                </a>
                                 {% else %}
                                 {% endif %}
 
                                 {% if products.imagen_4 %}
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}" data-zoom-image="/media/{{ products.imagen_4 }}"> <img src="/media/{{ products.imagen_4 }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">
+                                    <img src="/media/{{ products.imagen_4 }}" alt="">
+                                </a>
                                 {% else %}
                                 {% endif %}
-
-                                {% if products.youtube %}
-                                <a href="https://www.youtube.com/{{ products.youtube }}"  data-video="images/products/video/product.mp4"> <img src="/media/{{ products.imagen }}" alt=""></a>
-                                {% else %}
-                                {% endif %}
-
                             </div>
                         </div>
-
                         <!-- /Product Gallery -->
                     </div>
+
+                        <!-- /Product Gallery -->
                     <div class="col-md">
                         <div class="prd-block_info">
                             <div class="js-prd-d-holder prd-holder">
@@ -133,7 +135,6 @@
                                         <span>Realiza tu pedido</span>
                                     </button>
                                     </a>
-
                                 </div>
                             </div>
                         </div>
@@ -148,7 +149,6 @@
                                     <div class="text1">Compartir en Facebook</div>
                                 </div>
                             </a></a>
-
 
                             <a href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"class="shop-feature">
                                 <div class="shop-feature-icon">
@@ -167,10 +167,7 @@
                                     <div class="text1">Contactanos</div>
                                 </div>
                             </a>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>

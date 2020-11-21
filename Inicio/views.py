@@ -70,7 +70,7 @@ def coleccion_filtro(request,seccion,coleccion):
         'redes': Contacto_redes.objects.all(),
         # 'productt': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion, ),
         'prod': Product.objects.filter(prenda__coleccion__seccion__seccion=seccion,prenda__coleccion__tema=coleccion),
-        'products': Product.objects.filter(prenda__coleccion__tema=coleccion ),
+        'productss': Product.objects.filter(prenda__coleccion__tema=coleccion ),
         'blogs': Blogs.objects.all(),
         'categorias': Categoria.objects.all(),
     }

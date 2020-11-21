@@ -82,13 +82,13 @@
                                                 data-srcset="/media/{{ produc.imagen }}" class="lazyload"
                                                 alt="Color Name"></a></li>
                                         {% if produc.imagen_2 %}
-                                                    <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
-                                                                                                 class="js-color-toggle"><img
-                                                        src="/media/{{ produc.imagen_2 }}"
-                                                        data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
-                                                        alt="Color Name"></a></li>
-                                                {% else %}
-                                                {% endif %}
+                                            <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                                                                         class="js-color-toggle"><img
+                                                src="/media/{{ produc.imagen_2 }}"
+                                                data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
+                                                alt="Color Name"></a></li>
+                                        {% else %}
+                                        {% endif %}
 
                                     </ul>
                                     <div class="gdw-loader"></div>
@@ -140,11 +140,14 @@
                                                 src="/media/{{ produc.imagen }}"
                                                 data-srcset="/media/{{ produc.imagen }}" class="lazyload"
                                                 alt="Color Name"></a></li>
-                                        <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                        {% if produc.imagen_2 %}
+                                            <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
                                                                                          class="js-color-toggle"><img
                                                 src="/media/{{ produc.imagen_2 }}"
                                                 data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
                                                 alt="Color Name"></a></li>
+                                        {% else %}
+                                        {% endif %}
                                     </ul>
                                     <div class="gdw-loader"></div>
                                 </div>

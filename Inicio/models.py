@@ -5,7 +5,7 @@ from django.utils.safestring import mark_safe
 
 class Slider(models.Model):
     orden=models.IntegerField()
-    imagen=models.ImageField(upload_to='media', help_text='imagenes 500*900')
+    imagen=models.ImageField(upload_to='media', null=True, blank=True, help_text='imagenes 500*900')
     titulo=models.CharField(max_length=30, null=True,blank=True)
 
     def miniatura(self):

@@ -138,11 +138,12 @@
                                     <i class="icon icon-call  " style="font-size: large; color: #e0a800"></i>
                                 </a>
                             </div>
+                            <br>
 
                             <div class=" only-icon">
                                 <a href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Vortice  " target="_blank" rel="noopener">
                                     <i class="icon icon-chat3  "
-                                       style="font-size: large; color: #e0a800 ; margin-left: 20px"></i>
+                                       style="font-size: large; color: #e0a800 "></i>
                                 </a>
                             </div>
                             <!-- /Header Account -->
@@ -176,6 +177,7 @@
                             <li><a href="/contacto/" title="">Contácto</a></li>
                         </ul>
                         <!--/mmenu-->
+
                     </div>
                 </div>
             </div>
@@ -192,8 +194,29 @@
                     <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
                     <!--//navigation-->
                     <div class="col-auto minicart-holder-s"></div>
+                    <div class="hdr-content-right">
+                        <div class="links-holder">
+                            <!-- Header Account -->
+                            <div class=" only-icon" >
+                                <a href="tel:+593 {{ vortice.celular }}">
+                                    <i class="icon icon-call  " style="font-size: large; color: #e0a800"></i>
+                                </a>
+                            </div>
+                            <br>
+
+                            <div class=" only-icon" >
+                                <a href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Vortice  " target="_blank" rel="noopener">
+                                    <i class="icon icon-chat3  "
+                                       style="font-size: large; color: #e0a800 "></i>
+                                </a>
+                            </div>
+                            <!-- /Header Account -->
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
     </header>
 </div>
@@ -201,36 +224,37 @@
 
 {% block principal %}
     <div class="page-content">
-        <div class="header-banners">
+        <div class="header-banners"  style="padding-bottom: -20px">
             <div class="container">
                 <!-- banner from the editor Banner32 -->
                 {% for sli in slider %}
-                    <a href="#" class="bnr-wrap">
-                        <div class="bnr bnr32 bnr--style-1-6 bnr--left bnr--middle bnr-hover-scale"
-                             data-fontratio="11.4">
-                            <img src="/media/{{ sli.imagen }}" alt="">
-                            <span class="bnr-caption">
-                                <span  class="bnr-text-wrap">
-                                    <div style="text-align: left;margin-left: 25px" ><img src="/media/{{ pren.tipo.imagen }}"  data-srcset="/media/{{ vortice.logo_negro }}"  style="max-width:200%;width:auto;height:auto;" alt="Long tshirt"  class="js-prd-img lazyload"></div>
-                                    <span class="btn-decor bnr-btn">{{ sli.titulo}}  <span class="btn-line"></span></span>
+                    {% if sli.imagen %}
+                        <a href="#" class="bnr-wrap">
+                            <div class="bnr bnr32 bnr--style-1-6 bnr--left bnr--middle bnr-hover-scale"
+                                 data-fontratio="11.4">
+                                <img src="/media/{{ sli.imagen }}" alt="">
+                                <span class="bnr-caption">
+                                    <span  class="bnr-text-wrap">
+                                        <span class="btn-decor bnr-btn">{{ sli.titulo}}  <span class="btn-line"></span></span>
+                                    </span>
                                 </span>
-                            </span>
-                        </div>
-                    </a>
+                            </div>
+                        </a>
+                    {% else %}
+
+                    {% endif %}
+
                 {% endfor %}
                 <!-- //banner from the editor Banner32 -->
             </div>
         </div>
-        <div class="holder mt-2">
-            <div class="container">
+        <div class="holder mt-2" >
                 <div class="title-wrap text-center">
-                    <h2 class="h1-style">Clientes</h2>
+                    <h2 class="h1-style"  style="margin-top: -20px">Clientes</h2>
                 </div>
-            </div>
         </div>
-
         <!-- banners grid from the editor - Grid Layout 2 -->
-        <div class="holder mt-0">
+        <div class="holder mt-0"  >
             <div class="container">
                 <div class="row bnr-grid bnr-grid-1 no-gutters">
                     <div class="col-12">
@@ -289,6 +313,7 @@
             <!-- Products Grid -->
             <div class="container">
                 <div class="title-wrap text-center">
+                    <br><br>
                     <h2 class="h1-style">Nuevos Productos</h2>
                 </div>
 
@@ -317,12 +342,16 @@
                                                                                            class="js-color-toggle"><img
                                                     src="/media/{{ produc.imagen }}"
                                                     data-srcset="/media/{{ produc.imagen }}" class="lazyload"
-                                                    alt="Color Name"></a></li>
-                                            <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
-                                                                                             class="js-color-toggle"><img
-                                                    src="/media/{{ produc.imagen_2 }}"
-                                                    data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
-                                                    alt="Color Name"></a></li>
+                                                    alt="Color Name"></a>
+                                            </li>
+                                               {% if produc.imagen_2 %}
+                                                    <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                                                                                 class="js-color-toggle"><img
+                                                        src="/media/{{ produc.imagen_2 }}"
+                                                        data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
+                                                        alt="Color Name"></a></li>
+                                                {% else %}
+                                                {% endif %}
                                         </ul>
                                         <div class="gdw-loader"></div>
                                     </div>

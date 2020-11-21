@@ -7235,16 +7235,16 @@ body.has-slider .hdr {
     height: auto; } }
 
 .header-banners {
-  padding: 0 0 140px; }
+  padding: 0 0 100px; }
   @media screen and (max-width: 1199px) {
     .header-banners {
-      padding-bottom: 120px; } }
+      padding-bottom: 50px; } }
   @media screen and (max-width: 991px) {
     .header-banners {
-      padding-bottom: 100px; } }
+      padding-bottom: 50px; } }
   @media screen and (max-width: 767px) {
     .header-banners {
-      padding-bottom: 60px; } }
+      padding-bottom: 50px; } }
 
 body:not(.home-page) .hdr-wrap .header-banners {
   display: none; }
@@ -21409,7 +21409,7 @@ body.theme-dark .hdr-wrap {
     min-height: 0; } }
 
 body.home-page .page-content .holder:last-of-type {
-  padding-top: 160px;
+  padding-top: 10px;
   padding-bottom: 160px;
   background-position: center top;
   background-size: cover;

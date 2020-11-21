@@ -43,9 +43,12 @@
                                 <div class="prd-block_main-image-prev slick-prev js-main-image-prev">PREV</div>
                             </div>
                             <div class="prd-block_main-image-links">
-                                <a data-fancybox data-width="900" href="https://www.youtube.com/watch?v=Zk3kr7J_v3Q" class="prd-block_video-link">
-                                    <i class="icon icon-play"></i>
-                                </a>
+                                {% if produc.youtube %}
+                                    <a data-fancybox data-width="900" href="https://www.youtube.com/{{ products.youtube }}" class="prd-block_video-link">
+                                        <i class="icon icon-play"></i>
+                                    </a>
+                                    {% else %}
+                                {% endif %}
                                 <a href="/media/{{ products.imagen }}" class="prd-block_zoom-link">
                                     <i class="icon icon-zoomin"></i>
                                 </a>
@@ -54,10 +57,26 @@
                         <div class="product-previews-wrapper">
                             <div class="product-previews-carousel" id="previewsGallery100">
                                 <a href="#"  data-value="Silver"  data-image="/media/{{ products.imagen }}" data-zoom-image="/media/{{ products.imagen }}"> <img src="/media/{{ products.imagen }}" alt=""></a>
+                                {% if products.imagen_2 %}
                                 <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_2 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">  <img src="/media/{{ products.imagen_2 }}" alt=""></a>
+                                {% else %}
+                                {% endif %}
+
+                                {% if products.imagen_3 %}
                                 <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}" data-zoom-image="/media/{{ products.imagen_3 }}">    <img src="/media/{{ products.imagen_3 }}" alt=""></a>
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}" data-zoom-image="/media/{{ products.imagen_4 }}"></a>
-                                <a href="#"  data-video="images/products/video/product.mp4"> <img src="/media/{{ products.imagen }}" alt=""></a>
+                                {% else %}
+                                {% endif %}
+
+                                {% if products.imagen_4 %}
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}" data-zoom-image="/media/{{ products.imagen_4 }}"> <img src="/media/{{ products.imagen_4 }}" alt=""></a>
+                                {% else %}
+                                {% endif %}
+
+                                {% if products.youtube %}
+                                <a href="https://www.youtube.com/{{ products.youtube }}"  data-video="images/products/video/product.mp4"> <img src="/media/{{ products.imagen }}" alt=""></a>
+                                {% else %}
+                                {% endif %}
+
                             </div>
                         </div>
 
@@ -68,7 +87,15 @@
                             <div class="js-prd-d-holder prd-holder">
                                 <div class="prd-block_title-wrap">
                                     <h1 class="prd-block_title">{{ products.titulo }}</h1>
-                                    <div class="prd-block__labels"><span class="prd-label--new">Nuevo</span></div>
+                                    {% if products.new %}
+                                    <span class="prd-label--new">Nuevo</span> &nbsp; &nbsp;
+                                    {% else %}
+                                    {% endif %}
+                                    {% if products.offer %}
+                                    <span class="prd-label--sale" style="color: #aa0719; border-color: #aa0719" >Promo</span>
+                                    {% else %}
+                                    {% endif %}
+
                                 </div>
                                 <div class="prd-block_info-top">
                                     <div class="product-sku">Colección: <span>{{ products.prenda.coleccion }}</span>
@@ -119,7 +146,6 @@
                                 </div>
                                 <div class="shop-feature-text">
                                     <div class="text1">Compartir en Facebook</div>
-                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
                                 </div>
                             </a></a>
 
@@ -130,7 +156,6 @@
                                 </div>
                                 <div class="shop-feature-text">
                                     <div class="text1">Compartir en Whatsapp</div>
-                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
                                 </div>
                             </a>
 
@@ -140,7 +165,6 @@
                                 </div>
                                 <div class="shop-feature-text" >
                                     <div class="text1">Contactanos</div>
-                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
                                 </div>
                             </a>
 

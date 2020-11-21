@@ -44,7 +44,7 @@ class Visitas_Blog(models.Model):
 
 
     def visitar(self):
-        return "<a target='blank' href='http://www.colexin.com/blog/%s'>Ver en la Web</a>" % (self.blog.id)
+        return "<a target='blank' href='http://www.vortice.ec/blog/%s'>Ver en la Web</a>" % (self.blog.id)
 
     visitar.allow_tags = True
     visitar.short_description = "Ir"

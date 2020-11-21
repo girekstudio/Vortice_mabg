@@ -6,11 +6,11 @@ from products.models import *
 
 
 
-
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = Attr(Product)+["miniatura"]
     list_display_links = Attr(Product)
-admin.site.register(Product, ProductAdmin)
+
 
 # class Admin(admin.ModelAdmin):
 #     list_display = Attr()

@@ -1,28 +1,44 @@
 {% extends 'index.html' %}
 
 {% block principal %}
+     <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <!-- Page Title -->
+                <div class="page-title text-center">
+                    <div class="title">
+                        <h1>Contacto</h1>
+                    </div>
+                </div>
+                <!-- /Page Title -->
+                <div class="row vert-margin-double justify-content-center">
+                    <div class="col-sm-6 col-lg-4">
+                        <h2>Contáctate con nosotros</h2>
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="icon-mobile"></i></div>
+                            <div class="contact-info-text"><a href="tel:+{{ vortice.celular }}">{{ vortice.celular }}</a></div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="icon-chat"></i></div>
+                            <div class="contact-info-text"><a href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Vortice  " target="_blank" rel="noopener">Whatsapp</a></div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="icon-mail"></i></div>
+                            <div class="contact-info-text"><a href="mailto:{{ vortice.correo }}">{{ vortice.correo }}</a></div>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-info-icon"><i class="icon-location"></i></div>
+                            <div class="contact-info-text">MACHALA - ECUADOR</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-4 offset-lg-1" style="text-align: center">
+                        <h2 class="text-center">VÓRTICE</h2>
+                        <br>
+                        <img src="/media/{{ pren.tipo.imagen }}"  data-srcset="/media/{{ vortice.logo_negro }}"  style="max-width:200%;width:auto;height:auto;" alt="Long tshirt"  class="js-prd-img lazyload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<!-- contact -->
-	<div class="contact segments-page">
-		<div class="container">
-			<div class="contact-contents">
-				<div class="pages-title">
-					<h3>Contacto</h3>
-				</div>
-                <p><a href="tel:+{{ vortice.celular }}"> Cell: +{{ vortice.celular }}</a></p>
-                <p><a href="mailto:{{ vortice.correo }}">Correo: {{ vortice.correo }}</a></p>
-
-                <h1 style="text-align: center"> Contácto</h1>
-				<form action="" method="POST">
-                    {% csrf_token %}
-					<input type="text" placeholder="Por favor ingrese su nombre." name="name" required>
-					<input type="email" placeholder="Su dirección de correo" name="email" required>
-					<input type="text" placeholder="Tema" name="subject" required>
-					<textarea cols="30" rows="10" placeholder="Mensaje" type="message" name="message" id="message" required></textarea>
-					<button type="submit"  class="button"><i class="fa fa-send"></i>Enviar</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	<!-- end contact -->
 {% endblock %}

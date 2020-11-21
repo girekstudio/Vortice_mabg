@@ -3,31 +3,86 @@
 {% block principal %}
     {% load contador %}
 
-    <!-- blog -->
-    <div class="blog segments-page">
-        <div class="container">
-            {% for blog in blogs %}
-                <div class="contents">
-                    <img src="/media/{{ blog.imagen }}" alt="" width="100" height="300">
-                    <div class="text">
-                        <a href="/post/{{ blog.id }}/"><h4>{{ blog.titulo }} </h4></a>
-                        <p class="date"><i class="fa fa-calendar"></i>Autor: {{ blog.fecha }}</p>
-                        <p class="date"><i class="fa fa-eye"></i>Visitas: {% vistanumero blog.id %} </p>
-                        <p>{{ blog.articulo|safe|truncatechars:"150" }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-
-            <div class="pagination">
-                <ul>
-                    <li class="disabled"><a class="z-depth-1" href="">1</a></li>
-                    <li><a href="">2</a></li>
-                    <li><a href="">3</a></li>
-                    <li><a href="">4</a></li>
-                    <li><a href="">5</a></li>
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/blog/">Blog</a></li>
                 </ul>
             </div>
         </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <!-- Page Title -->
+                <div class="page-title text-center">
+                    <div class="title">
+                        <h1>Blog</h1>
+                    </div>
+                </div>
+                <!-- /Page Title -->
+                <div class="row">
+                    <div class="col-md-9 aside" id="centerColumn">
+                        {% for blog in blogs %}
+                        <div class="post-prw-big"><a href="/post/{{ blog.id }}/" class="post-img"><img src="/media/{{ blog.imagen }}" alt=""></a>
+                            <div class="post-inside">
+                                <ul class="tags-list post-tags-list">
+                                    <li><a href="#">Autor: {{ blog.autor }}</a></li>
+
+                                </ul>
+                                <h2 class="post-title"><a href="/post/{{ blog.id }}/">{{ blog.titulo }} </a></h2>
+                                <p class="post-teaser">{{ blog.articulo|safe|truncatechars:"150" }}</p>
+                                <div class="post-bot">
+                                    <div class="post-date">Visitas: {% vistanumero blog.id %}</div><a href="/post/{{ blog.id }}/" class="post-link">Leer mas.!</a>
+                                    <div class="post-action"><a href="/post/{{ blog.id }}/" class="icon-heart"></a> <a href="#" class="icon-share"></a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                        <div class="show-more d-flex mt-4 mt-md-6 justify-content-center align-items-start">
+                            <ul class="pagination mt-0">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 aside aside--right fixed-col fixed js-product-fixed-col" id="sideColumn">
+                        <div class="fixed-col_container">
+                            <div class="fstart"></div>
+                            <div class="fixed-wrapper">
+                                <div class="fixed-scroll">
+                                    <div class="fixed-col_content">
+{##}
+                                        <div class="aside-block">
+                                            <h2 class="text-uppercase">Ultimos Post</h2>
+                                            {% for blog in blogs %}
+                                                <div class="post-prw"><a href="/post/{{ blog.id }}/" class="post-img"><img src="/media/{{ blog.imagen }}" data-src="/media/{{ blog.imagen }}" class="lazyload" alt=""></a>
+                                                    <h4 class="post-title"><a href="#">{{ blog.titulo }} </a></h4>
+{#                                                    <p class="post-teaser">This is your store’s blog. You can use it to talk about new product...</p>#}
+                                                    <div class="post-bot">
+                                                        <div class="post-date">Fecha: {{ blog.fecha }}</div><a href="/post/{{ blog.id }}/" class="post-link">Leer mas!</a>
+                                                        <div class="post-action"><a href="#" class="icon icon-heart-1"></a> <a href="#" class="icon-share"></a></div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fend"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ymax"></div>
+            </div>
+        </div>
     </div>
+
+
     <!-- end blog -->
 {% endblock %}

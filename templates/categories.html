@@ -1,126 +1,192 @@
 {% extends 'index.html' %}
 {% block principal %}
-    <!-- product -->
-    <div class="product segments-page">
-        <div class="container">
-            <div class="row">
-                <!-- product home -->
-                <div class="product-home p-bottom segments">
-                    <div class="section-title">
-                        <h3>Artuculo</h3>
-                    </div>
-                    <div class="product-slide-two owl-carousel owl-theme">
-                        {% for arti in articu %}
-                            <div class="col s3">
-                              <a href="/seccion/{{ arti.seccion.seccion }}/prenda/{{ arti.tipo.tipo }}/">
-                                    <img src="/media/{{ arti.tipo.imagen }}" style="max-width:250%;width:auto;height:auto;">
-                                    <br>
-                                </a>
-                            </div>
-                        {% endfor %}
-                    </div>
-
-                    <div class="l-more">
-                        <p href="see-more-product.html">
-                            <i class="fa fa-angle-left"></i>Desliza
-                        </p>
-                    </div>
+    <div class="header-banners">
+        <div class="holder fullboxed aside--bg-none holder-bg-carousel">
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style"><a href="/seccion/{{ sec.seccion }}/" class="prd-img"> Artículos</a></h2>
                 </div>
-                <!-- end product home -->
-            </div>
-        </div>
-    </div>
-    <!-- product -->
 
-    <!-- b-seller -->
-    <div style="margin-top: -100px" class="b-seller segments">
-        <div class="container">
-            <div class="section-title">
-                <h3>Productos</h3>
-            </div>
-            <div class="row" >
-                {% for produc in productss %}
-                    <div class="col s6" style="justify-items: left ">
-                        <div class="content" >
-                            <div class="image">
-                                <img src="/media/{{ produc.imagen }}" alt="" width="100%" height="100%" >
+                <div class="prd-grid prd-text-center prd-carousel js-prd-carousel js-product-isotope-sm slick-arrows-aside-simple slick-arrows-mobile-lg data-to-show-4 data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-2 xs-limit-1"
+                     data-slick='{"slidesToShow": 6, "responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 6}},{"breakpoint": 768,"settings": {"slidesToShow": 4}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+
+                    {% for arti in articu %}
+                        <div class="prd prd-has-loader">
+                            <div class="prd-inside">
+                                <div class="prd-img-area"><a
+                                        href="/seccion/{{ arti.seccion.seccion }}/prenda/{{ arti.tipo.tipo }}/"
+                                        class="prd-img"><img
+                                        src="/media/{{ arti.tipo.imagen }}"
+                                        data-srcset="/media/{{ arti.tipo.imagen }}"
+                                        style="max-width:40%;width:auto;height:auto;" alt="Long tshirt"
+                                        class="js-prd-img lazyload"> </a>
+                                    <div class="gdw-loader"></div>
+                                </div>
+                                <div class="prd-info">
+                                    <h2 class="prd-title"><a href="/seccion/{{ arti.seccion.seccion }}/prenda/{{ arti.tipo.tipo }}/">{{ arti.tipo.tipo }}</a></h2>
+                                </div>
                             </div>
-                            <div class="text">
-                                <a href="/producto_detalle/{{ produc.id }}/">
-                                    <h4 style="text-align: center">{{ produc.titulo }}</h4>
-                                </a>
+                            <br><br>
+                        </div>
+                    {% endfor %}
 
-                                {% if produc.offer %}
-                                    <p style="text-align: center; margin-top: 0px"><del>$.{{ produc.precio }}</del></p>
-                                    <h5 style="text-align: center ; margin-top: -10px">$.{{ produc.precio_oferta }}</h5>
-                                {% else %}
-                                    <h5 style="text-align: center; margin-top: 10px">$.{{ produc.precio }}</h5>
-                                {% endif %}
+                </div>
+                <hr>
+                <br><br>
+
+                <!-- Products Grid -->
+
+                <div class="prd-grid product-listing data-to-show-4 data-to-show-md-4 data-to-show-sm-2 js-category-grid">
+                    {% for produc in productss %}
+                        <div class="prd prd-has-loader prd-new prd-popular">
+                            <div class="prd-inside">
+                                <div class="prd-img-area"><a href="/producto_detalle/{{ produc.id }}/"
+                                                             class="prd-img"><img src="/media/{{ produc.imagen }}"
+                                                                                  data-srcset="/media/{{ produc.imagen }}"
+                                                                                  alt="Glamor shoes"
+                                                                                  class="js-prd-img lazyload"></a>
+                                    {% if produc.new %}
+                                        <div class="label-new">Nuevo</div>
+                                    {% else %}
+                                    {% endif %}
+
+                                    {% if produc.offer %}
+
+                                        <div class="label-sale">Promo</div>
+                                    {% else %}
+                                    {% endif %}
+                                    <ul class="list-options color-swatch prd-hidemobile">
+                                        <li data-image="/media/{{ produc.imagen }}"><a href="#" class="js-color-toggle"><img
+                                                src="/media/{{ produc.imagen }}"
+                                                data-srcset="/media/{{ produc.imagen }}" class="lazyload"
+                                                alt="Color Name"></a></li>
+                                        <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                                                                         class="js-color-toggle"><img
+                                                src="/media/{{ produc.imagen_2 }}"
+                                                data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
+                                                alt="Color Name"></a></li>
+                                    </ul>
+                                    <div class="gdw-loader"></div>
+                                </div>
+                                <div class="prd-info">
+                                    <div class="prd-tag prd-hidemobile">{{ produc.prenda.coleccion }}</div>
+                                    <h2 class="prd-title"><a href="/producto_detalle/{{ produc.id }}/">{{ produc.titulo }}</a></h2>
+                                    <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i
+                                            class="icon-star fill"></i><i class="icon-star fill"></i><i
+                                            class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    {% if produc.offer %}
+                                        <div class="prd-price" style="text-align: center">
+                                            <div class="price-old">$ {{ produc.precio }}</div>&nbsp;&nbsp;
+                                            <div class="price-new">$ {{ produc.precio_oferta }}</div>
+                                        </div>
+
+                                    {% else %}
+                                        <div class="prd-price">
+                                            <div class="price-new" style="text-align: center">
+                                                $ {{ produc.precio }}</div>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                        <br><br><br><br>
-                    </div>
+                    {% endfor %}
 
-                {% endfor %}
 
-                 {% for produc in product %}
-                    <div class="col s6" style="justify-items: left ">
-                        <div class="content" >
-                            <div class="image">
-                                <a href="/producto_detalle/{{ produc.id }}/">
-                                    <img src="/media/{{ produc.imagen }}" alt="" width="100%" height="100%" >
-                                </a>
-                            </div>
-                            <div class="text">
-                                <a href="/producto_detalle/{{ produc.id }}/">
-                                    <h4 style="text-align: center">{{ produc.titulo }}</h4>
-                                </a>
+                    {% for produc in product %}
+                        <div class="prd prd-has-loader prd-new prd-popular">
+                            <div class="prd-inside">
+                                <div class="prd-img-area"><a href="/producto_detalle/{{ produc.id }}/"
+                                                             class="prd-img"><img src="/media/{{ produc.imagen }}"
+                                                                                  data-srcset="/media/{{ produc.imagen }}"
+                                                                                  alt="Glamor shoes"
+                                                                                  class="js-prd-img lazyload"></a>
+                                    {% if produc.new %}
+                                        <div class="label-new">Nuevo</div>
+                                    {% else %}
+                                    {% endif %}
 
-                                {% if produc.offer %}
-                                    <p style="text-align: center; margin-top: 0px"><del>$.{{ produc.precio }}</del></p>
-                                    <h5 style="text-align: center ; margin-top: -10px">$.{{ produc.precio_oferta }}</h5>
-                                {% else %}
-                                    <h5 style="text-align: center; margin-top: 10px">$.{{ produc.precio }}</h5>
-                                {% endif %}
+                                    {% if produc.offer %}
+
+                                        <div class="label-sale">Promo</div>
+                                    {% else %}
+                                    {% endif %}
+                                    <ul class="list-options color-swatch prd-hidemobile">
+                                        <li data-image="/media/{{ produc.imagen }}"><a href="#" class="js-color-toggle"><img
+                                                src="/media/{{ produc.imagen }}"
+                                                data-srcset="/media/{{ produc.imagen }}" class="lazyload"
+                                                alt="Color Name"></a></li>
+                                        <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                                                                         class="js-color-toggle"><img
+                                                src="/media/{{ produc.imagen_2 }}"
+                                                data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
+                                                alt="Color Name"></a></li>
+                                    </ul>
+                                    <div class="gdw-loader"></div>
+                                </div>
+                                <div class="prd-info">
+                                    <div class="prd-tag prd-hidemobile">{{ produc.prenda.coleccion }}</div>
+                                    <h2 class="prd-title"><a href="/producto_detalle/{{ produc.id }}/">{{ produc.titulo }}</a></h2>
+                                    <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i
+                                            class="icon-star fill"></i><i class="icon-star fill"></i><i
+                                            class="icon-star fill"></i><i class="icon-star"></i></div>
+                                    {% if produc.offer %}
+                                        <div class="prd-price" style="text-align: center">
+                                            <div class="price-old">$ {{ produc.precio }}</div>&nbsp;&nbsp;
+                                            <div class="price-new">$ {{ produc.precio_oferta }}</div>
+                                        </div>
+
+                                    {% else %}
+                                        <div class="prd-price">
+                                            <div class="price-new" style="text-align: center">
+                                                $ {{ produc.precio }}</div>
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
-                        <br><br><br><br>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+
+                </div>
+
             </div>
         </div>
-    </div>
-    <!-- end b-seller -->
+
+        <div class="holder fullboxed aside--bg-none holder-bg-carousel">
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style">Colecciones</h2>
+                </div>
+
+                <div class="prd-grid prd-text-center prd-carousel js-prd-carousel js-product-isotope-sm slick-arrows-aside-simple slick-arrows-mobile-lg data-to-show-4 data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-2 sm-limit-4"
+                     data-slick='{"slidesToShow": 4, "responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 768,"settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
 
 
+                    {% for colec in colecciones %}
 
 
-    <!-- product home -->
-    <div class="product-home segments">
-        <div class="container">
-            <div class="section-title">
-                <h3>Colecciones</h3>
-            </div>
-            <div class="product-slide owl-carousel owl-theme ">
-
-
-                {% for colec in colecciones %}
-                    <div class="content">
-                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
-                                src="/media/{{ colec.imagen }}" alt="" width="100%" height="100%"></a>
-                        <p style="text-align: center"> {{ colec.tema }}</p>
-                    </div>
-                {% endfor %}
-
-            </div>
-            <div class="l-more">
-                <p href="see-more-product.html">
-                    <i class="fa fa-angle-right"></i>Desliza
-                </p>
+                            <div class="prd prd-has-loader">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a
+                                            href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"
+                                            class="prd-img"><img
+                                            src="/media/{{ colec.imagen }}"
+                                            data-srcset="/media/{{ colec.imagen }}" alt="Long tshirt"
+                                            class="js-prd-img lazyload"> </a>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <h2 class="prd-title"><a
+                                                href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/">{{ colec.seccion.seccion }}
+                                            - {{ colec.tema }}</a></h2>
+                                    </div>
+                                </div>
+                            </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
+        <br><br><br>
     </div>
-    <br><br><br>
 
     <!-- end product home -->
 

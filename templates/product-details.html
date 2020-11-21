@@ -1,91 +1,160 @@
 {% extends 'index.html' %}
 {% block metas %}
-    <meta property="og:url" content="http://vortice.ec/producto_detalle/{{ products.id }}" />
+    <meta property="og:url" content="http://vortice.ec/producto_detalle/{{ products.id }}"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{{ products.nombre_producto }}" />
-    <meta property="og:description" content="{{ products.descripcion}}" />
-    <meta property="og:image"  content="http://vortice.ec/media/{{ products.imagen }}" />
-    <meta property="og:image:width" content="600" />
-    <meta property="og:image:height" content="600" />
-    <meta property="fb:app_id" content="926164441218858" />
+    <meta property="og:title" content="{{ products.nombre_producto }}"/>
+    <meta property="og:description" content="{{ products.descripcion }}"/>
+    <meta property="og:image" content="http://vortice.ec/media/{{ products.imagen }}"/>
+    <meta property="og:image:width" content="600"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="fb:app_id" content="926164441218858"/>
 {% endblock %}
 {% block principal %}
-
-    <br>
-
-    <!-- product details -->
-    <div class="segments-page">
-        <div class="container">
-            <div class="product-details">
-                <div class="contents">
-                    <div class="product-d-slide owl-carousel owl-theme">
-                        <div class="content">
-                            <img src="/media/{{ products.imagen }}" alt="" width="100%" height="100%">
+    <div class="page-content">
+        <div class="holder mt-0">
+            <div class="container">
+                <ul class="breadcrumbs">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/seccion/{{ products.prenda.coleccion.seccion.seccion }}">{{ products.prenda.coleccion.seccion.seccion  }}</a></li>
+                    <li><span>{{ products.titulo }}</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row prd-block prd-block--mobile-image-first prd-block--prv-right js-prd-gallery"
+                     id="prdGallery100">
+                    <div class="col-md-6 col-xl-5">
+                        <div class="prd-block_info js-prd-m-holder mb-2 mb-md-0"></div><!-- Product Gallery -->
+                        <div class="prd-block_main-image main-image--slide js-main-image--slide">
+                            <div class="prd-block_main-image-holder js-main-image-zoom" data-zoomtype="inner">
+                                <div class="prd-block_main-image-video js-main-image-video">
+                                    <video loop muted preload="metadata" controls="controls">
+                                        <source src="#">
+                                    </video>
+                                    <div class="gdw-loader"></div>
+                                </div>
+                                <div class="prd-has-loader">
+                                    <div class="gdw-loader"></div>
+                                    <img src="/media/{{ products.imagen }}" class="zoom" alt=""
+                                         data-zoom-image="/media/{{ products.imagen }}">
+                                </div>
+                                <div class="prd-block_main-image-next slick-next js-main-image-next">NEXT</div>
+                                <div class="prd-block_main-image-prev slick-prev js-main-image-prev">PREV</div>
+                            </div>
+                            <div class="prd-block_main-image-links">
+                                <a data-fancybox data-width="900" href="https://www.youtube.com/watch?v=Zk3kr7J_v3Q" class="prd-block_video-link">
+                                    <i class="icon icon-play"></i>
+                                </a>
+                                <a href="/media/{{ products.imagen }}" class="prd-block_zoom-link">
+                                    <i class="icon icon-zoomin"></i>
+                                </a>
+                            </div>
                         </div>
-                        {% if products.imagen_2  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_2 }}" alt="" width="100%" height="100%">
+                        <div class="product-previews-wrapper">
+                            <div class="product-previews-carousel" id="previewsGallery100">
+                                <a href="#"  data-value="Silver"  data-image="/media/{{ products.imagen }}" data-zoom-image="/media/{{ products.imagen }}"> <img src="/media/{{ products.imagen }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_2 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">  <img src="/media/{{ products.imagen_2 }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}" data-zoom-image="/media/{{ products.imagen_3 }}">    <img src="/media/{{ products.imagen_3 }}" alt=""></a>
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}" data-zoom-image="/media/{{ products.imagen_4 }}"></a>
+                                <a href="#"  data-video="images/products/video/product.mp4"> <img src="/media/{{ products.imagen }}" alt=""></a>
                             </div>
-                            {% else %}
-                        {% endif %}
-                        {% if products.imagen_3  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_3 }}" alt="" width="100%" height="100%">
-                            </div>
-                            {% else %}
-                        {% endif %}
-                        {% if products.imagen_4  %}
-                            <div class="content">
-                                <img src="/media/{{ products.imagen_4 }}" alt="" width="100%" height="100%">
-                            </div>
-                            {% else %}
-                        {% endif %}
+                        </div>
 
+                        <!-- /Product Gallery -->
                     </div>
+                    <div class="col-md">
+                        <div class="prd-block_info">
+                            <div class="js-prd-d-holder prd-holder">
+                                <div class="prd-block_title-wrap">
+                                    <h1 class="prd-block_title">{{ products.titulo }}</h1>
+                                    <div class="prd-block__labels"><span class="prd-label--new">Nuevo</span></div>
+                                </div>
+                                <div class="prd-block_info-top">
+                                    <div class="product-sku">Colección: <span>{{ products.prenda.coleccion }}</span>
+                                    </div>
+                                    <div class="prd-rating"><i class="icon-star fill"></i><i class="icon-star fill"></i><i
+                                            class="icon-star fill"></i><i class="icon-star fill"></i><i
+                                            class="icon-star"></i> <span>1 reviews</span></div>
+                                    <div class="prd-availability">Disponivilidad: <span>si</span></div>
+                                </div>
+                                <div class="prd-block_description topline">
+                                    <p>{{ products.descripcion }}</p>
+                                    <p>-  Consultar para otras tallas</p>
+                                </div>
+                            </div>
+                            <div class="prd-block_options topline">
 
-                    <div class="desc-short ">
-                        <h4>{{ products.titulo }}</h4>
-                        <h5>Colección  <strong>{{ products.prenda.coleccion.tema }}</strong></h5>
+                                <div class="prd-size swatches"><span class="option-label">Tallas:</span>
+                                    <div class="option-links">{{ products.talla }}</div>
+                                </div>
+                            </div>
+                            <div class="prd-block_actions topline">
+                                {% if products.offer %}
+                                    <div class="prd-block_price"><span class="prd-block_price--actual">$ {{ products.precio_oferta }}</span>
+                                        <span class="prd-block_price--old">$ {{ products.precio }}</span>
+                                    </div>
+                                {% else %}
+                                    <div class="prd-block_price">
+                                        <span class="prd-block_price--actual">$ {{ products.precio }}</span>
+                                    </div>
+                                {% endif %}
+                                <div class="btn-wrap" >
+                                    <a href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Me%20interesa%20un%20producto  www.vortice.ec/producto_detalle/{{ products.id }}/  " target="_blank" rel="noopener" >
+                                        <button class="btn btn--add-to-cart"  >
+                                        <i class="icon icon-handbag"></i>
+                                        <span>Realiza tu pedido</span>
+                                    </button>
+                                    </a>
 
-                        <p>{{ products.descripcion }}. - Consultar para otras tallas </p>
-                        <table class="egt">
-
-                            <tr>
-                                <th style="text-align: center"><h4>Tallas : </h4></th>
-                                <th style="text-align: center"><h4>Precio:</h4></th>
-                            </tr>
-                            <tr >
-
-                                <td style="text-align: center">{{ products.talla }}</td>
-                                <td style="text-align: center">
-                                    {% if produc.offer %}
-                                        <p style="text-align: center; margin-top: 0px"><del>$.{{ products.precio }}</del></p>
-                                        <h5 style="text-align: center ; margin-top: -10px">$.{{ products.precio_oferta }}</h5>
-                                    {% else %}
-                                        <h5 style="text-align: center; margin-top: 10px">$.{{ products.precio }}</h5>
-                                    {% endif %}
-                                </td>
-                            </tr>
-                        </table>
-
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="share-media">
+                    <div class="col-xl-3 mt-3 mt-xl-0 sidebar-product">
+                        <div class="shop-features-style4">
+                            <a href="http://www.vortice.ec/producto_detalle/{{ products.id }}/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.vortice.ec%2Fproducto_detalle%2F{{ products.id }}%2F&amp;src=sdkpreparse"class="shop-feature">
+                                <div class="shop-feature-icon">
+                                    <i class="icon-facebook"></i>
+                                </div>
+                                <div class="shop-feature-text">
+                                    <div class="text1">Compartir en Facebook</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a></a>
 
-                        <h5>Compartir</h5>
-                        <ul>
-                            <li><a  href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"><i style="color: #0f9d58 "  class="fa fa-whatsapp"></i></a></li>
-                            <li>
-                                <div class="fb-share-button" data-href="http://www.vortice.ec/producto_detalle/{{ products.id }}/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.vortice.ec%2Fproducto_detalle%2F{{ products.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a></div>
-                            </li>
-                        </ul><br>
 
-                        <a  class="button"  style=" background: #00C853" title="Click para chatear" href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Me%20interesa%20un%20producto  www.vortice.ec/producto_detalle/{{ products.id }}/  " target="_blank" rel="noopener"><i style="color: #ffffff "  class="fa fa-whatsapp"></i>Envíanos un mensaje por WhatsApp</a>
+                            <a href="whatsapp://send?text=https:/vortice.ec/producto_detalle/{{ products.id }}/" data-action="share/whatsapp/share"class="shop-feature">
+                                <div class="shop-feature-icon">
+                                    <i class="icon-chat"></i>
+                                </div>
+                                <div class="shop-feature-text">
+                                    <div class="text1">Compartir en Whatsapp</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a>
+
+                            <a href="tel:+593 {{ vortice.celular }}" class="shop-feature">
+                                <div class="shop-feature-icon">
+                                    <i class="icon-call"></i>
+                                </div>
+                                <div class="shop-feature-text" >
+                                    <div class="text1">Contactanos</div>
+                                    <div class="text2">Lorem ipsum dolor sit amet conset</div>
+                                </div>
+                            </a>
+
+                        </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end product details -->
+
+
+
 
 {% endblock %}
 

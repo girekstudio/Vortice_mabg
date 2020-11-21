@@ -1,26 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/media/{{ vortice.favicon_negro }}" type="image/x-icon"/>
-    <link rel="apple-touch-icon" href="/media/{{ vortice.favicon_negro }}">
-
-    <link rel="icon" href="/media/{{ vortice.favicon_negro }}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>Vortice Store</title>
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="/static/css/materialize.css">
-    <link rel="stylesheet" href="/static/css/loaders.css">
-    <link rel="stylesheet" href="/static/css/line-awesome.css">
-    <link rel="stylesheet" href="/static/css/line-awesome-font-awesome.css">
-    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/media/{{ vortice.favicon_negro }}">
+    <!-- Vendor CSS -->
+    <link href="/static/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/js/vendor/slick/slick.min.css" rel="stylesheet">
+    <link href="/static/js/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="/static/js/vendor/animate/animate.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/css/style-tshirts_1_light.css" rel="stylesheet">
+    <!--icon font-->
+    <link href="/static/fonts/icomoon/icomoon.css" rel="stylesheet">
+    <!--custom font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
 
     <script>
         window.fbAsyncInit = function () {
@@ -44,229 +47,440 @@
         <meta property="fb:app_id" content="926164441218858"/>
 
     {% endblock %}
-
 </head>
 
-<body>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v8.0&appId=926164441218858&autoLogAppEvents=1"
-        nonce="gq9HxCq3"></script>
-<!-- preloader -->
-<div class="preloader">
-    <div class="spinner"></div>
-</div>
-<!-- end preloader -->
+<body class="home-page is-dropdn-click">
+<!-- todos los menu -->
+<div class="hdr-wrap bg-bottom bg-cover"
+     style="background-image: url(/static/images/home-tshirts/header-tshirts-bg.jpg); background-color: #232323;">
+    <header class="hdr global_width hdr-style-2 hdr--dark hdr--dark-drop hdr_sticky minicart-icon-style-2 hdr-mobile-style2">
+        <!-- Mobile Menu -->
+        <div class="mobilemenu js-push-mbmenu">
+            <div class="mobilemenu-content">
+                <div class="mobilemenu-close mobilemenu-toggle">CERRAR</div>
+                <div class="mobilemenu-scroll">
+                    <div class="mobilemenu-search"></div>
+                    <div class="nav-wrapper show-menu">
+                        <div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span
+                                class="nav-title"></span></div>
 
-<!-- navbar -->
-<div class="navbar">
-    <div class="container">
-        <div class="row">
-            <div class="col s6">
-                <div class="content-left">
-                    <a href="#slide-out" data-activates="slide-out" class="sidebar"><i class="fa fa-bars"></i></a>
-                    <a href="/">
-                        <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">
-                    </a>
-                </div>
-            </div>
-            <div class="col s6">
-                <div class="content-right">
-                    <a href="tel:+593 {{ vortice.celular }}" > <i class="fa fa-mobile"></i></a>
-                    <a  title="Click para chatear" href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Vortice   " target="_blank" rel="noopener"><i class="fa fa-whatsapp"></i></a>
+                        <ul class="nav nav-level-1">
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="#" title="">Usuarios</a><span class="arrow"></span>
+                                <ul class="nav-level-2">
 
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end navbar -->
-
-
-<!-- sidebar -->
-<div class="sidebar-panel">
-    <ul id="slide-out" class="collapsible side-nav">
-        <li>
-            <div class="user-view">
-                <div class="background">
-                    <img src="/static/images/bg-user.jpg" alt="">
-                </div>
-                <img src="/media/{{ vortice.logo_horizontal }}" alt="" width="170" height="40">
-            </div>
-        </li>
-        <li><a href="/"><i style="color: #cc9900" class="fa fa-home"></i>Inicio</a></li>
-
-        {% for client in seccion %}
-            <li>
-                <div class="collapsible-header">
-                    <a href="/seccion/{{ client.seccion }}/"><img src="/media/{{ client.icono }}"
-                                                                  style="max-width:10%;width:auto;height:auto;"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ client.seccion }}<i
-                        class="fa fa-angle-right right"></i>
-                </div>
-                <div class="collapsible-body">
-                    <ul>
-                        {% for pren in prenda %}
-                            {% if pren.coleccion.seccion == client %}
-                                {% if pren.principal_visible == True %}
-                                    <li><a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo.tipo }}/"><img
-                                            src="/media/{{ pren.tipo.imagen }}"
-                                            style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ pren.tipo.tipo  }}
-                                    </a>
-                                    </li>
-                                {% endif %}
-
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-        {% endfor %}
-
-        <li><a href="/blog/"><i style="color: #cc9900" class="fa fa-rss"></i>Blogs</a></li>
-
-        <li><a href="/contacto/"><i style="color: #cc9900" class="fa fa-envelope-o"></i>Contacto</a></li>
-
-    </ul>
-</div>
-<!-- end sidebar -->
-
-
-
-{% block principal %}
-
-
-    <!-- slide -->
-    <div class="container">
-        <div class="slide">
-            <div class="slide-show owl-carousel owl-theme">
-                {% for sli in slider %}
-                    <div class="slide-content ">
-                        <img src="/media/{{ sli.imagen }}" alt="">
-                        <div class="caption">
-
-                        </div>
+                                    {% for client in seccion %}
+                                        <li><a href="/seccion/{{ client.seccion }}/" title=""><img
+                                                src="/media/{{ client.icono }}"
+                                                style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ client.seccion }}
+                                        </a><span class="arrow"></span>
+                                            <ul class="nav-level-3">
+                                                {% for pren in prenda %}
+                                                    {% if pren.coleccion.seccion == client %}
+                                                        {% if pren.principal_visible == True %}
+                                                            <li>
+                                                                <a href="/seccion/{{ pren.coleccion.seccion.seccion }}/prenda/{{ pren.tipo.tipo }}/"
+                                                                   title=""><img src="/media/{{ pren.tipo.imagen }}"
+                                                                                 style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ pren.tipo.tipo }}
+                                                                </a>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li><a href="/blog/" title="">Blog</a></li>
+                            <li><a href="/contacto/" title="">Contácto</a></li>
+                        </ul>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-
-    </div>
-    <!-- end slide -->
-
-
-    <!-- category -->
-    <div class="category segments">
-        <div class="container">
-            <div class="row">
-                {% for client in seccion %}
-                    <div class="col s3">
-                        <div class="content">
-                            <a href="/seccion/{{ client.seccion }}/">
-                                <img src="/media/{{ client.icono }}" style="max-width:90%;width:auto;height:auto;">
-                                <span>{{ client.seccion }}</span>
-                            </a>
-                        </div>
+                    <div class="mobilemenu-bottom">
+                        <div class="mobilemenu-currency"></div>
+                        <div class="mobilemenu-language"></div>
+                        <div class="mobilemenu-settings"></div>
                     </div>
-                {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    <!-- end category -->
-    <br>
-
-
-
-
-    <!-- product home -->
-    <div class="product-home segments">
-        <div class="container">
-            <div class="section-title">
-                <h3>Nuevas Colecciones</h3>
+        <!-- /Mobile Menu -->
+        <div class="hdr-mobile show-mobile">
+            <div class="hdr-content">
+                <div class="container">
+                    <!-- Menu Toggle -->
+                    <div class="menu-toggle"><a href="#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a>
+                    </div>
+                    <!-- /Menu Toggle -->
+                    <div class="logo-holder"><a href="/" class="logo"><img
+                            src="/media/{{ vortice.logo_horizontal }}" srcset="/media/{{ vortice.logo_horizontal }} 2x"
+                            alt=""></a></div>
+                    <div class="hdr-mobile-right">
+                        <div class="hdr-topline-right links-holder"></div>
+                        <div class="minicart-holder"></div>
+                    </div>
+                </div>
             </div>
-            <div class="slide-show owl-carousel owl-theme">
-                {% for colec in coleccion %}
-                    {% if colec.nuevo %}
-                        <div class="content">
-                            <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
-                                    alt="Vortice" src="/media/{{ colec.portada }}"
-                                    style="max-width:100%;width:auto;height:auto;"></a>
-                            <div class="caption">
-                                <br>
-                                <h5 style="color: #777777 ; font-family: Calibri ; text-align: center">{{ colec.seccion.seccion }}
-                                    - {{ colec.tema }}</h5>
+        </div>
+        <div class="hdr-desktop hide-mobile">
+            <div class="hdr-content">
+                <div class="container">
+                    <div class="hdr-content-left">
+                    </div>
+                    <div class="logo-holder"><a href="/" class="logo"><img src="/media/{{ vortice.logo_horizontal }}"
+                                                                           srcset="/media/{{ vortice.logo_horizontal }} 2x"
+                                                                           alt=""></a></div>
+                    <div class="hdr-content-right">
+                        <div class="links-holder">
+                            <!-- Header Account -->
+                            <div class=" only-icon">
+                                <a href="tel:+593 {{ vortice.celular }}">
+                                    <i class="icon icon-call  " style="font-size: large; color: #e0a800"></i>
+                                </a>
                             </div>
 
+                            <div class=" only-icon">
+                                <a href="https://api.whatsapp.com/send?phone=593{{ vortice.celular }}&text=Hola%20Vortice  " target="_blank" rel="noopener">
+                                    <i class="icon icon-chat3  "
+                                       style="font-size: large; color: #e0a800 ; margin-left: 20px"></i>
+                                </a>
+                            </div>
+                            <!-- /Header Account -->
                         </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="l-more">
-
-                <p>
-                    <i class="fa fa-angle-left"></i>Desliza
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <!-- product home -->
-    <div class="product-home segments">
-        <div class="container">
-            <div class="section-title">
-                <h3>Colecciones</h3>
-            </div>
-            <div class="product-slide owl-carousel owl-theme">
-
-
-                {% for colec in coleccion %}
-                    <div class="content">
-                        <a href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"><img
-                                src="/media/{{ colec.imagen }}" alt="" width="100%" height="100%"></a>
-                        <p style="text-align: center">{{ colec.seccion.seccion }} - {{ colec.tema }}</p>
                     </div>
-                {% endfor %}
-
+                </div>
             </div>
-            <div class="l-more">
-                <p>
-                    <i class="fa fa-angle-left"></i>Desliza
-                </p>
+            <div class="nav-holder">
+                <div class="container">
+                    <div class="hdr-nav">
+                        <!--mmenu horizontal-->
+                        <ul class="mmenu mmenu-js">
+                            <li><a href="/">Inicio</a></li>
+                            <li class="mmenu-item--simple"><a href="#" title="">Clientes</a>
+                                <div class="mmenu-submenu">
+                                    <ul class="submenu-list">
+                                        {% for client in seccion %}
+                                            <li><a href="/seccion/{{ client.seccion }}/" title="">
+                                                <img src="/media/{{ client.icono }}"
+                                                     style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ client.seccion }}
+                                                <span class="mmenu-preview">
+                                                        <img src="/media/{{ client.icono }}"
+                                                             data-src="/media/{{ client.icono }}" class="lazyload"
+                                                             alt=""></span></a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="/blog/" title="">Blog</a></li>
+                            <li><a href="/contacto/" title="">Contácto</a></li>
+                        </ul>
+                        <!--/mmenu-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sticky-holder compensate-for-scrollbar">
+            <div class="container">
+                <div class="row"><a href="/" class="mobilemenu-toggle show-mobile"><i class="icon icon-menu"></i></a>
+                    <div class="col-auto logo-holder-s"><a href="/" class="logo"><img
+                            src="/media/{{ vortice.logo_horizontal }}"
+                            srcset="/media/{{ vortice.logo_horizontal }} 2x" alt=""></a></div>
+                    <!--navigation-->
+                    <div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
+                    <div class="nav-holder-s"></div>
+                    <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
+                    <!--//navigation-->
+                    <div class="col-auto minicart-holder-s"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+<!-- fin todos los menu -->
+
+{% block principal %}
+    <div class="page-content">
+        <div class="header-banners">
+            <div class="container">
+                <!-- banner from the editor Banner32 -->
+                {% for sli in slider %}
+                    <a href="#" class="bnr-wrap">
+                        <div class="bnr bnr32 bnr--style-1-6 bnr--left bnr--middle bnr-hover-scale"
+                             data-fontratio="11.4">
+                            <img src="/media/{{ sli.imagen }}" alt="">
+                            <span class="bnr-caption">
+                                <span  class="bnr-text-wrap">
+                                    <div style="text-align: left;margin-left: 25px" ><img src="/media/{{ pren.tipo.imagen }}"  data-srcset="/media/{{ vortice.logo_negro }}"  style="max-width:200%;width:auto;height:auto;" alt="Long tshirt"  class="js-prd-img lazyload"></div>
+                                    <span class="btn-decor bnr-btn">{{ sli.titulo}}  <span class="btn-line"></span></span>
+                                </span>
+                            </span>
+                        </div>
+                    </a>
+                {% endfor %}
+                <!-- //banner from the editor Banner32 -->
+            </div>
+        </div>
+        <div class="holder mt-2">
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style">Clientes</h2>
+                </div>
+            </div>
+        </div>
+        <!-- banners grid from the editor - Grid Layout 2 -->
+        <div class="holder mt-0">
+            <div class="container">
+                <div class="row bnr-grid bnr-grid-1 no-gutters">
+                    <div class="col-12">
+                        <div class="row no-gutters" style="text-align: center">
+                            {% for client in seccion %}
+                                <div class="col-3">
+                                    <div class="col-content">
+                                        <a href="/seccion/{{ client.seccion }}/" class="bnr-wrap">
+                                            <div class="bnr bnr31 bnr--style-1 bnr--left bnr--bottom bnr-hover-scale"
+                                                 data-fontratio="2.26"><img
+                                                    src="/media/{{ client.icono }}"
+                                                    alt=""></div>
+                                            <p>{{ client.seccion }}</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //banners grid from the editor - Grid Layout 2 -->
+
+            <div class="holder fullboxed aside--bg-none holder-bg-carousel">
+                <div class="container">
+                    <div class="title-wrap text-center">
+                        <h2 class="h1-style">Nuevas Colecciones</h2>
+                    </div>
+
+                    <div class="prd-grid prd-text-center prd-carousel js-prd-carousel js-product-isotope-sm slick-arrows-aside-simple slick-arrows-mobile-lg data-to-show-4 data-to-show-md-3 data-to-show-sm-3 data-to-show-xs-2 sm-limit-4"
+                         data-slick='{"slidesToShow": 4, "responsive": [{"breakpoint": 992,"settings": {"slidesToShow": 3}},{"breakpoint": 768,"settings": {"slidesToShow": 2}},{"breakpoint": 480,"settings": {"slidesToShow": 2}}]}'>
+
+                        {% for colec in coleccion %}
+                            {% if colec.nuevo %}
+
+                                <div class="prd prd-has-loader">
+                                    <div class="prd-inside">
+                                        <div class="prd-img-area"><a
+                                                href="/seccion/{{ colec.seccion.seccion }}/coleccion/{{ colec.tema }}/"
+                                                class="prd-img"><img
+                                                src="/media/{{ colec.imagen }}"
+                                                data-srcset="/media/{{ colec.imagen }}" alt="Long tshirt"
+                                                class="js-prd-img lazyload"> </a>
+                                            <div class="gdw-loader"></div>
+                                        </div>
+                                        <div class="prd-info">
+                                            <h2 class="prd-title">{{ colec.seccion.seccion }}- {{ colec.tema }}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- Products Grid -->
+            <div class="container">
+                <div class="title-wrap text-center">
+                    <h2 class="h1-style">Nuevos Productos</h2>
+                </div>
+
+                <div class="prd-grid product-listing data-to-show-4 data-to-show-md-4 data-to-show-sm-2 js-category-grid">
+                    {% for produc in products %}
+                        {% if produc.new %}
+                            <div class="prd prd-has-loader prd-new prd-popular">
+                                <div class="prd-inside">
+                                    <div class="prd-img-area"><a href="/producto_detalle/{{ produc.id }}/"
+                                                                 class="prd-img"><img src="/media/{{ produc.imagen }}"
+                                                                                      data-srcset="/media/{{ produc.imagen }}"
+                                                                                      alt="Glamor shoes"
+                                                                                      class="js-prd-img lazyload"></a>
+                                        {% if produc.new %}
+                                            <div class="label-new">Nuevo</div>
+                                        {% else %}
+                                        {% endif %}
+
+                                        {% if produc.offer %}
+
+                                            <div class="label-sale">Promo</div>
+                                        {% else %}
+                                        {% endif %}
+                                        <ul class="list-options color-swatch prd-hidemobile">
+                                            <li data-image="/media/{{ produc.imagen }}"><a href="#"
+                                                                                           class="js-color-toggle"><img
+                                                    src="/media/{{ produc.imagen }}"
+                                                    data-srcset="/media/{{ produc.imagen }}" class="lazyload"
+                                                    alt="Color Name"></a></li>
+                                            <li data-image="/media/{{ produc.imagen_2 }}"><a href="#"
+                                                                                             class="js-color-toggle"><img
+                                                    src="/media/{{ produc.imagen_2 }}"
+                                                    data-srcset="/media/{{ produc.imagen_2 }}" class="lazyload"
+                                                    alt="Color Name"></a></li>
+                                        </ul>
+                                        <div class="gdw-loader"></div>
+                                    </div>
+                                    <div class="prd-info">
+                                        <div class="prd-tag prd-hidemobile">{{ produc.prenda.coleccion }}</div>
+                                        <h2 class="prd-title"><a
+                                                href="/producto_detalle/{{ produc.id }}/">{{ produc.titulo }}</a></h2>
+                                        <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i
+                                                class="icon-star fill"></i><i class="icon-star fill"></i><i
+                                                class="icon-star fill"></i><i class="icon-star"></i></div>
+                                        {% if produc.offer %}
+                                            <div class="prd-price" style="text-align: center">
+                                                <div class="price-old">$ {{ produc.precio }}</div>&nbsp;&nbsp;
+                                                <div class="price-new">$ {{ produc.precio_oferta }}</div>
+                                            </div>
+
+                                        {% else %}
+                                            <div class="prd-price">
+                                                <div class="price-new" style="text-align: center">
+                                                    $ {{ produc.precio }}</div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="side-fixed">
+                <div class="left-fixed">
+                    <div><img src="/static/images/home-tshirts/left-img-1.png" alt=""></div>
+                    <div><img src="/static/images/home-tshirts/left-img-2.png" alt=""></div>
+                </div>
+                <div class="right-fixed">
+                    <div><img src="/static/images/home-tshirts/right-img-1.png" alt=""></div>
+                    <div><img src="/static/images/home-tshirts/right-img-2.png" alt=""></div>
+                </div>
             </div>
         </div>
     </div>
-    <!-- end product home -->
-    <br><br>
-
 {% endblock %}
+<footer class="page-footer footer-style-11 global_width bg-bottom mt-0"
+        style="background-image: url(/static/images/home-tshirts/footer-tshirts-bg.jpg); background-color: #252525;">
+    <div class="holder footer-top-negative bg-top mt-0"
+         style="background-image: url(/static/images/home-tshirts/bg-tshirts-subscribe.png)">
+        <div class="container">
+            <div class="subscribe-form subscribe-form--style1 subscribe-form--whitecolor">
+                <p style=" text-align:center;  font-family: 'Comic Sans MS', serif; font-size:14pt; font-style:italic">
+                    Vive tu estilo Vórtice</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-top container py-3 py-md-5 py-lg-9">
+        <div class="row">
+            <div class="footer-left col-lg col-xl-6">
+                <div class="row">
+                    <div class="col-md mb-2 mb-md-0">
+                        <div class="footer-logo"><a href="#"><img src="/media/{{ vortice.logo_horizontal }}"
+                                                                  class="img-fluid" alt=""></a></div>
+                        <div class="footer-copyright">
+                            <p class="footer-copyright-text"><span>© Copyright</span> 2020 <a
+                                    href="/">Vortice</a>
+                                <span>All rights reserved.</span></p>
+                            <p class="footer-copyright-links"><a href="">Terms & conditions</a> <a href="">Privacy
+                                policy</a></p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="footer-block collapsed-mobile">
 
-<!-- footer -->
-<footer>
-    <div class="container">
-        <img src="/media/{{ vortice.logo_negro }}" alt="">
-        <p><a href="tel:+{{ vortice.celular }}">+593 {{ vortice.celular }}</a></p>
 
-        <ul>
-            <li><a href="https://www.facebook.com/{{ redes.facebook }}"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://www.twitter.com/{{ redes.twitter }}"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://www.youtube.com/{{ redes.youtube }}"><i class="fa fa-youtube-play"></i></a></li>
-            <li><a href="https://www.instagram.com/{{ redes.instagram }}"><i class="fa fa-instagram"></i></a></li>
-        </ul>
-        <a style="color: #ffffff" href="https://www.girekstudio.com/">GirekStudio</a>
-        <p>Copyright © Todos los derechos reservados Vortice.ec - Ecuador</p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="footer-block collapsed-mobile">
+                            <div class="title">
+                                <h4>Clientes</h4>
+                                <div class="toggle-arrow"></div>
+                            </div>
+                            <div class="collapsed-content">
+                                <ul>
+                                    {% for client in seccion %}
+                                        <li><a href="/seccion/{{ client.seccion }}/" title="">
+                                            <img src="/media/{{ client.icono }}"
+                                                 style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ client.seccion }}
+                                            <span class="mmenu-preview">
+                                                    <img src="/media/{{ client.icono }}"
+                                                         data-src="/media/{{ client.icono }}" class="lazyload"
+                                                         alt=""></span></a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-right col-lg col-xl-5 ml-auto">
+                <div class="footer-block">
+                    <div class="row align-items-end align-items-lg-start">
+                        <div class="col-sm col-lg">
+                            <div class="title">
+                                <h4>Contáctanos</h4>
+                            </div>
+                            <ul class="contact-list">
+                                <li><i class="icon-phone"></i><span><span
+                                        class="h6-style">Contácto:</span><span> <a href="tel:+{{ vortice.celular }}">{{ vortice.celular }}</a></span></span>
+                                </li>
+
+                                <li><i class="icon-mail-envelope1"></i><span><span
+                                        class="h6-style">E-mail:</span><span><a
+                                        href="mailto:ivortice.ec@gmail.com">vortice.ec@gmail.com</a></span></span></li>
+                                <li><i class="icon-location1"></i><span><span class="h6-style">DIrección:</span><span>Machala - Ecuador</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm col-lg-3 mt-2 mt-sm-0">
+                            <ul class="social-list">
+                                <li><a href="https://www.facebook.com/{{ redes.facebook }}"
+                                       class="icon icon-facebook"></a></li>
+                                <li><a href="https://www.twitter.com/{{ redes.twitter }}" class="icon icon-twitter"></a>
+                                </li>
+                                <li><a href="https://www.instagram.com/{{ redes.instagram }}"
+                                       class="icon icon-instagram"></a></li>
+                                <li><a href="https://www.youtube.com/{{ redes.youtube }}" class="icon icon-youtube"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
-<!-- end footer -->
 
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/js/materialize.js"></script>
-<script src="/static/js/owl.carousel.min.js"></script>
-<script src="/static/js/styleswitcher.js"></script>
-<script src="/static/js/main.js"></script>
+
+<script src="/static/js/vendor/jquery/jquery.min.js"></script>
+<script src="/static/js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/static/js/vendor/slick/slick.min.js"></script>
+<script src="/static/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+<script src="/static/js/vendor/instafeed/instafeed.min.js"></script>
+<script src="/static/js/vendor/countdown/jquery.countdown.min.js"></script>
+<script src="/static/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/static/js/vendor/ez-plus/jquery.ez-plus.min.js"></script>
+<script src="/static/js/vendor/tocca/tocca.min.js"></script>
+<script src="/static/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.min.js"></script>
+<script src="/static/js/vendor/isotope/jquery.isotope.min.js"></script>
+<script src="/static/js/vendor/fancybox/jquery.fancybox.min.js"></script>
+<script src="/static/js/vendor/cookie/jquery.cookie.min.js"></script>
+<script src="/static/js/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/static/js/vendor/lazysizes/lazysizes.min.js"></script>
+<script src="/static/js/vendor/lazysizes/ls.bgset.min.js"></script>
+<script src="/static/js/vendor/form/jquery.form.min.js"></script>
+<script src="/static/js/vendor/form/validator.min.js"></script>
+<script src="/static/js/vendor/slider/slider.js"></script>
+<script src="/static/js/app.js"></script>
 
 </body>
 
 </html>
+

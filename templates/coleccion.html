@@ -58,7 +58,8 @@
                 <!-- Products Grid -->
 
                 <div class="prd-grid product-listing data-to-show-4 data-to-show-md-4 data-to-show-sm-2 js-category-grid">
-                    {% for produc in productss %}
+                    {% for produc in prod %}
+
                         <div class="prd prd-has-loader prd-new prd-popular">
                             <div class="prd-inside">
                                 <div class="prd-img-area"><a href="/producto_detalle/{{ produc.id }}/"
@@ -117,7 +118,7 @@
                     {% endfor %}
 
 
-                    {% for produc in product %}
+                    {% for produc in products %}
                         <div class="prd prd-has-loader prd-new prd-popular">
                             <div class="prd-inside">
                                 <div class="prd-img-area"><a href="/producto_detalle/{{ produc.id }}/"

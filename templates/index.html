@@ -159,16 +159,12 @@
                             <li><a href="/">Inicio</a></li>
                             <li class="mmenu-item--simple"><a href="#" title="">Clientes</a>
                                 <div class="mmenu-submenu">
-                                    <ul class="submenu-list">
+                                    <ul class="submenu-list" style="max-height: 840.781px;">
                                         {% for client in seccion %}
-                                            <li><a href="/seccion/{{ client.seccion }}/" title="">
-                                                <img src="/media/{{ client.icono }}"
-                                                     style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ client.seccion }}
-                                                <span class="mmenu-preview">
-                                                        <img src="/media/{{ client.icono }}"
-                                                             data-src="/media/{{ client.icono }}" class="lazyload"
-                                                             alt=""></span></a>
-                                            </li>
+                                            <br>
+                                            <li><a href="/seccion/{{ client.seccion }}/" title=""><img src="/media/{{ client.icono }}"style="max-width:10%;width:auto;height:auto;">&nbsp;&nbsp;&nbsp;{{ client.seccion }} <span class="mmenu-preview"> <img src="/media/{{ client.icono }}"  data-src="/media/{{ client.wallpaper_seccion }}" class="lazyload"alt=""><span class="gdw-loader"></span></span></a></li>
+                                            <br>
+
                                         {% endfor %}
                                     </ul>
                                 </div>
@@ -177,7 +173,6 @@
                             <li><a href="/contacto/" title="">Contácto</a></li>
                         </ul>
                         <!--/mmenu-->
-
                     </div>
                 </div>
             </div>

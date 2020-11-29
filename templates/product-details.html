@@ -2,7 +2,7 @@
 {% block metas %}
     <meta property="og:url" content="http://vortice.ec/producto_detalle/{{ products.id }}"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="{{ products.nombre_producto }}"/>
+    <meta property="og:title" content="{{ products.titulo }}"/>
     <meta property="og:description" content="{{ products.descripcion }}"/>
     <meta property="og:image" content="http://vortice.ec/media/{{ products.imagen }}"/>
     <meta property="og:image:width" content="600"/>
@@ -66,14 +66,14 @@
                                 {% endif %}
 
                                 {% if products.imagen_3 %}
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_3 }}"   data-zoom-image="/media/{{ products.imagen_3 }}">
                                     <img src="/media/{{ products.imagen_3 }}" alt="">
                                 </a>
                                 {% else %}
                                 {% endif %}
 
                                 {% if products.imagen_4 %}
-                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}"   data-zoom-image="/media/{{ products.imagen_2 }}">
+                                <a href="#" data-value="Silver"  data-image="/media/{{ products.imagen_4 }}"   data-zoom-image="/media/{{ products.imagen_4 }}">
                                     <img src="/media/{{ products.imagen_4 }}" alt="">
                                 </a>
                                 {% else %}
